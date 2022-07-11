@@ -1,0 +1,100 @@
+# ===================================
+#  Field Definitions
+# ===================================
+
+fields:
+    step1_section:
+        label: "1. Upload an Import File"
+        type: section
+
+    file_format:
+        label: File Format
+        type: dropdown
+        default: standard
+        options:
+            json: JSON
+            csv: CSV
+            csv_custom: CSV Custom
+        span: right
+
+    import_file:
+        label: Import File
+        type: fileupload
+        mode: file
+        span: left
+        fileTypes: [csv, json]
+        useCaption: false
+
+    format_delimiter:
+        label: Delimiter Character
+        default: ','
+        span: left
+        trigger:
+            action: show
+            condition: value[csv_custom]
+            field: file_format
+
+    format_enclosure:
+        label: Enclosure Character
+        span: auto
+        default: '"'
+        trigger:
+            action: show
+            condition: value[csv_custom]
+            field: file_format
+
+    format_escape:
+        label: Escape Character
+        span: auto
+        default: '\'
+        trigger:
+            action: show
+            condition: value[csv_custom]
+            field: file_format
+
+    format_encoding:
+        label: File Encoding
+        span: auto
+        default: UTF-8
+        type: dropdown
+        trigger:
+            action: show
+            condition: value[csv_custom]
+            field: file_format
+
+    first_row_titles:
+        label: First row contains column titles
+        comment: Leave this checked if the first row in the CSV is used as the column titles.
+        type: checkbox
+        default: true
+        span: left
+        trigger:
+            action: show
+            condition: value[csv][csv_custom]
+            field: file_format
+
+    step2_section:
+        label: "2. Match the file columns to database fields"
+        type: section
+
+    column_control_panel:
+        type: partial
+        path: ~/modules/backend/behaviors/importexportcontroller/partials/_import_toolbar.php
+
+    import_file_columns:
+        label: File columns
+        type: partial
+        path: ~/modules/backend/behaviors/importexportcontroller/partials/_import_file_columns.php
+        dependsOn: [import_file, file_format, first_row_titles, format_delimiter, format_enclosure, format_escape, format_encoding]
+        span: left
+
+    import_db_columns:
+        label: Database fields
+        type: partial
+        path: ~/modules/backend/behaviors/importexportcontroller/partials/_import_db_columns.php
+        dependsOn: [import_file, file_format, first_row_titles, format_delimiter, format_enclosure, format_escape, format_encoding]
+        span: right
+
+    step3_section:
+        label: "3. Set import options"
+        type: section
