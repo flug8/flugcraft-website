@@ -2,3 +2,62 @@
 // =================================================
 
 @import "~uikit/src/scss/components/button";
+
+.uk-button {
+    border-radius: 35px;
+    font-family: NeueMontreal-Regular;
+    text-transform: none;
+    font-size: 24px;
+    height: 70px;
+    text-align: center;
+    line-height: 70px;
+    width: 260px;
+    margin-right: 100px;
+
+    &.uk-button-small {
+        border-radius: 25px;
+        width: 70px;
+    }
+
+    &.uk-button-default{
+        color: black;
+        border-width: 2px;
+        background: transparent;
+        background-image: url('https://web.archive.org/web/20160312084140im_/http://splatoon.nintendo.com/assets/img/nav-bg-fill-blue.png?1443460871');
+        filter: grayscale(1) contrast(100) brightness(1);
+        background-repeat: repeat-x;
+        background-position: -50px -100%;
+        transition: .5s ease-out;
+        border-color: black;
+    }
+
+        
+    &.uk-button-primary{
+        color: black;
+        border-width: 2px;
+        background-color: white;
+        background-image: url('https://web.archive.org/web/20160312084140im_/http://splatoon.nintendo.com/assets/img/nav-bg-fill-blue.png?1443460871');
+        filter: grayscale(1) contrast(100) brightness(1) invert(1);
+        background-repeat: repeat-x;
+        background-position: -50px -100%;
+        transition: .5s ease-out;
+        border-color: black;
+    }
+    
+    &.uk-button-secondary{
+        background: none;
+        border: 2px solid;
+        color: black;
+        transition: .5s ease-out;
+    }
+    
+}
+
+.uk-button:hover{
+    background-position: center;
+    color: white;
+}
+.uk-button-secondary:hover{
+    box-shadow: inset 11em 0 0 0 black;
+}
+
