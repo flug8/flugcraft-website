@@ -1,0 +1,66 @@
+// Variables
+// =================================================
+
+@import "~uikit/src/scss/components/variables";
+
+$colors: (
+  /* Brand colors */
+  "primary": #4bb2dd, // Do not remove
+  "secondary": #3e4145, // Do not remove
+  /* Defaults */
+  "danger": #f0506e, // Do not remove
+  "success": #32d296, // Do not remove
+  /* Shades */
+  "muted": #f8f8f8, // Do not remove
+  "base": #666666, // Do not remove
+  "white": #ffffff,
+  "black": #000000,
+
+);
+
+$global-primary-background: map_get($colors, "primary");
+$global-secondary-background: map_get($colors, "secondary");
+$global-danger-background: map_get($colors, "danger");
+$global-success-background: map_get($colors, "success");
+$global-muted-background: map_get($colors, "muted");
+$global-font-family: NeueMontreal-Regular, Arial;
+$base-body-color: map_get($colors, "base");
+$global-font-size: 24px;
+
+// Import last
+@import "~uikit/src/scss/variables-theme"; // Theme
+
+@font-face {
+  font-family: NeueMontreal-Regular;
+  src: url( 'fonts/NeueMontreal-Regular.otf' );
+}
+
+@font-face {
+  font-family: NeueMontreal-Medium;
+  src: url( 'fonts/NeueMontreal-Medium.otf' );
+}
+
+@font-face {
+  font-family: NeueMontreal-Light;
+  src: url( 'fonts/NeueMontreal-Light.otf' );
+}
+
+@font-face {
+  font-family: NM-custom;
+  src: url( 'fonts/NM-custom.otf' );
+}
+
+
+
+
+$font-family: NeueMontreal-Regular, Arial;
+$font-family-light: NeueMontreal-Light, Arial;
+$font-family-medium: NeueMontreal-Medium, Arial;
+
+$color1: #f3f1ee;//#e7e5e2;
+$color2: #0d3937; //#000
+$color3: #e7e5e2; 
+$color4: #000;
+$color5: #ECC97A;
+$color6: #4BB2DD;
+

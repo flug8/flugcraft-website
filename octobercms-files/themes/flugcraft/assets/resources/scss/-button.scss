@@ -1,0 +1,45 @@
+
+
+// BUTTONS
+
+
+.btna {
+    border: none;//2px solid $color1;
+    background-color: $color2;
+    color: $color1;
+    border-radius: 35px;
+    width: 210px;
+    height: 60px;
+    text-align: center;
+    font-size: 18px;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px 0 30px;
+
+    & .fiverricon {
+        display: none;
+    }
+
+}
+
+@media (max-width: 800px) {
+    .btna {
+        width: 50px;
+        height: 50px;
+        padding: 15px;
+
+        & p, .arrowMOF {
+            display: none;
+        }
+
+        & .fiverricon {
+            display: block;
+
+            & .b {
+                fill: $color1;
+            }
+        }
+
+    }
+}

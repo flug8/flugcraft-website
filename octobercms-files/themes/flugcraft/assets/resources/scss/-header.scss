@@ -1,0 +1,340 @@
+
+
+// HEADER
+
+
+.header {
+    overflow: hidden;
+    background-color: $color1;
+    padding: 0px 0px;
+    align-items: flex-start;
+    justify-content: center;
+    display: flex;
+    height: 120px;
+    position: sticky;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 100;
+    transition: .3s ease;
+
+}
+
+.header-wrapper {
+    flex: 1;
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+    margin: 0px 50px;
+    height: 119px;
+    border-bottom: 1px solid $color2;
+}
+
+
+// HEADER PARTS
+
+
+.header-left {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.header-center {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-right {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+
+// LOGO
+
+
+.header img {
+    float: left;
+    width: 90px;
+}
+
+
+// NAVIGATION
+
+
+.hoverrunbox {
+    position: fixed;
+    display: flex;
+    padding: auto 8px;
+    top: -12px;
+}
+
+.hoverrunbox div {
+    width: 70px;
+    height: 12px;
+    margin: 0px 34px;
+    background-color: $color2;
+    transition: .3s ease;
+    border-radius: 6px;
+}
+
+.navElements {
+    display: flex;
+}
+
+.navElements a {
+    width: 122px;
+    margin: auto 8px;
+    text-align: center;
+    
+
+}
+
+.header-center a {
+    font-size: 16px;
+    text-decoration: none;
+    color: $color2;
+}
+
+
+// BUTTON
+
+
+.arrowMOF {
+    transition: .3s ease;
+
+     & path {
+        stroke: $color1;
+     }
+}
+
+
+// MOF POPUP
+
+
+.bgMOF {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background-color: $color4;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 11;
+}
+
+.popupMOF {
+    height: 0px;
+    width: 100%;
+    background-color: $color2;
+    border-radius: 0 0 35px 35px;
+    transition: .5s ease;
+    position: fixed;
+    top: 0;
+    
+}
+
+.popupMOFlinks {
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    padding: 120px 50px 0px 50px;
+    color: $color1;
+    pointer-events: none;
+    align-items: center;
+    height: 320px;
+}
+
+.MOF-link-element {
+    flex: 1;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    border-bottom: 1px solid $color1;
+    border-top: 1px solid $color1;
+    flex-direction: column;
+    justify-content: space-between;
+    transform: translate(0px , -30px);
+    transition: 1s ease;
+    opacity: 0;
+    pointer-events: none;
+    margin: auto 60px;
+}
+
+
+.MOF-link-element h5 {
+    margin: 20px 0 20px 0;
+}
+
+.MOF-link-element p {
+    margin: 20px 0 20px 0;
+}
+
+
+// PRODUCT POPUP
+
+
+.popupP {
+    height: 0px;
+    width: 100%;
+    background-color: $color2;
+    border-radius: 0 0 35px 35px;
+    transition: .5s ease;
+    position: fixed;
+    top: 0;
+    
+}
+
+.popupPlinks {
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    padding: 180px 50px 0px 50px;
+    color: $color1;
+    pointer-events: none;
+    align-items: center;
+    height: 420px;
+}
+
+.popupPlink-element {
+    flex: 1;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex-direction: column;
+    justify-content: space-between;
+    transform: translate(0px , -60px);
+    transition: 1s ease;
+    opacity: 0;
+    pointer-events: none;
+    margin: auto 30px;
+    background-color: $color5;
+    height: 360px;
+}
+
+.header-burger {
+    display: none;
+    order: -1;
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+    align-items: left;
+}
+
+
+.burgerpopup {
+    height: 0px;
+    width: 100%;
+    background-color: $color2;
+    transition: .5s ease;
+    position: fixed;
+    top: 0;
+    
+}
+
+
+
+
+
+
+
+
+
+
+// MOBILE
+
+
+@media (max-width: 1200px) {
+    .navElements a {
+        margin: auto 0;
+        width: 106px;
+    }
+    .hoverrunbox div {
+        margin: 0px 18px;
+    }
+}
+
+
+@media (max-width: 960px) {
+    .header {
+        height: 80px;
+    }
+    .header-wrapper {
+        height: 79px;
+        margin: 0 20px;
+    }
+    .header-center {
+        display: none;
+    }
+    .header-left {
+        justify-content: center;
+    }
+    .navElements {
+        flex-direction: column;
+        justify-content: center;
+        display: none;
+    }
+    .header img {
+        float: none;
+        width: 60px;
+    }
+
+
+    .burgericon {
+        height: 30px;
+        width: 30px;
+        margin-left: 10px;
+        //border: 1px solid red;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+    
+        & .line1, .line2, .line3 {
+            background-color: $color2;
+            height: 3px;
+            width: 30px;
+            border-radius: 10px;
+        }
+    }
+    
+
+
+
+
+    // BURGER ACTIVE
+
+    .burgericon:hover {
+
+        & div {
+            background-color: $color1;
+        }
+    
+        & .line1 {
+            transform: translateY(10px) rotate(45deg);
+            width: 35px;
+        }
+    
+        & .line3 {
+            transform: translateY(-10px) rotate(-45deg);
+            width: 35px;
+        }
+    
+        & .line2 {
+            width: 3px;
+        }
+    
+    }
+
+
+    
+}

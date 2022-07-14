@@ -1,0 +1,154 @@
+
+
+// FOOTER
+
+
+.footer {
+    overflow: hidden;
+    background-color: $color2;
+    padding: 20px 0px;
+    align-items: center;
+    justify-content: space-around;
+    display: flex;
+    height: 500px;
+    position: sticky;
+    bottom: 0;
+    z-index: 0;
+    color: $color1;
+}
+
+.footer-links {
+    flex: 1;
+    display: flex;
+    justify-content: stretch;
+    align-items: stretch;
+}
+
+.footer-link-element {
+    flex: 1;
+    margin: 60px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    border-bottom: 1px solid $color1;
+    border-top: 1px solid $color1;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+.footer-link-element h5 {
+    margin: 20px 0 20px 0;
+}
+
+.footer-link-element p {
+    margin: 20px 0 20px 0;
+}
+
+.footer-link-element-link {
+    margin-top: auto;
+    margin-bottom: 20px;
+    justify-content: space-between;
+    display: flex;
+    align-items: flex-end;
+    text-decoration: none;
+
+    &:hover svg {
+        background-color: $color1;
+    }
+
+    &:hover svg g {
+        fill: $color2;
+    }
+
+}
+
+
+.footer-link-element-link svg{
+    width: 20px;
+    height: 20px;
+    fill: black;
+    border: 1px solid $color1;
+    padding: 2px;
+    border-radius: 20px;
+}
+
+.fooL {
+    margin: 25px 0px;
+}
+
+.fooLE {
+    padding: 0 50px;
+}
+
+.fooCH {
+    border-top: 1px solid $color1;
+    background-color: transparent;
+    padding: 20px 0;
+}
+
+.fooCB {
+    padding: 0 0 20px 0;
+}
+
+.fooCF {
+    border-bottom: 1px solid $color1;
+    margin-bottom: 0;
+    padding: 20px 0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    text-decoration: none;
+
+    & svg {
+        width: 25px;
+        height: 25px;
+        border: 1px solid $color1;
+        padding: 2px;
+        border-radius: 20px;
+    }
+
+    &:hover svg {
+        background-color: $color1;
+
+        & g {
+            fill: $color2;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// MOBILE
+
+
+@media (max-width: 960px) {
+
+    .footer {
+        height: 600px;
+        position: relative;
+    }
+
+    .fooLE {
+        margin-top: -1px !important;
+        padding: 0 20px;
+    }
+}

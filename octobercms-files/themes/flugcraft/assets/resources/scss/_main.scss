@@ -1,0 +1,42 @@
+// Custom styles
+// =================================================
+
+* {
+    margin: 0px;
+    font-family: $font-family;
+    transition: .3s ease;
+}
+
+.uk-text-lead {
+    font-size: 36px;
+}
+
+.p {
+    font-size: 24;
+}
+
+.mainpage {
+    background-color: $color1;
+    padding: 0 50px 35px 50px;
+    border-radius: 0 0 35px 35px;
+}
+
+
+
+div {       // for footer to work including interactive elements
+    z-index: 10;
+    position: relative;
+}
+
+body {
+    background-color: $color2;
+}
+
+
+
+@media (max-width: 960px) {
+    .mainpage {
+        padding: 0px 20px 35px 20px;
+    }
+}
+
