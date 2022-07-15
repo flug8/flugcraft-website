@@ -5,9 +5,27 @@
 
 var mouseonheader = false;
 var productinactive = true;
+var burgeractive = false;
+var fiverractive = false;
 
 // FUNCTIONS
 
+
+function fixwidth(){
+    const w = window.innerWidth;
+    if(w > 960 && burgeractive == true) {
+        hideBurgerNavigationMenu();
+        burgeractive = false;
+    }
+    if(w <= 960 && productinactive == false){
+        moh = mouseonheader;
+        console.log("Modified onheader status! (old:" + moh + ")");
+        mouseOnHeaderStatus(false);
+        hideProductNavigationMenu();
+        productinactive = true;
+        setTimeout(mouseOnHeaderStatus, 200, moh);
+    }
+}
 
 function mouseOnHeaderStatus(n){
     mouseonheader = n;
@@ -29,25 +47,54 @@ function resizeHeaderOnScroll() {
     
 }
 
+function toggleBurgerNavigation() {
+    if(!burgeractive){
+        showBurgerNavigationMenu();
+        console.log("on");
+        burgeractive = true;
+    }else{
+        hideBurgerNavigationMenu();
+        console.log("off");
+        burgeractive = false;
+    }
+}
+
+function hideFiverrOnMobile () {
+
+    if(window.innerWidth <= 960 && fiverractive == true) {
+        console.log("mobile"+ window.innerWidth);
+        hideFiverrNavigationMenu();
+    }else{
+        showFiverrNavigationMenu();
+        console.log("YAY");
+    }
+}
+
+
+
 
 
 
 
 function showFiverrNavigationMenu() {
     const check = document.getElementById("popupMOF").style.height
+    console.log(check);
     if(check == false || check == "0px"){
+        console.log(check + "!")
         const c = window.getComputedStyle( document.body , null).getPropertyValue("background-color");
         const c2 = window.getComputedStyle( document.getElementById("whitecolor") , null).getPropertyValue("color");
         document.getElementById("arrowMOF").style.transform = "rotate(90deg)";
         document.getElementById("arrowMOFPath").style.stroke = c;
         document.getElementById("fiverrMOFPath").style.fill = c;
         document.getElementById("fiverrMOFCircle").style.fill = c;
-        document.getElementById("popupMOF").style.height = "440px";
+        var h = 220 + document.getElementById("heaL").clientHeight;
+        document.getElementById("popupMOF").style.height = h + "px";
         document.getElementById("header-wrapper").style.borderBottomColor = c2;
         document.getElementById("btna").style.backgroundColor = c2;
         document.getElementById("btnatxt").style.color = c;
         document.getElementById("bgMOF").style.opacity = ".3";
         document.getElementById("bgMOF").style.pointerEvents = "auto";
+        setTimeout(function() {fiverractive = true}, 150) ;
         for(var i=0; i<4; i++) {
             j = i+1;
             document.getElementById("hover" + j).style.color = c2;        
@@ -78,7 +125,7 @@ function showFiverrNavigationMenu() {
 
 function hideFiverrNavigationMenu() {
     const check = document.getElementById("popupMOF").style.height 
-    if(check == "440px"){
+    if(check !== false && check !== "0px"){
     if(mouseonheader==false){
         const c = window.getComputedStyle( document.body , null).getPropertyValue("background-color");
         const c2 = window.getComputedStyle( document.getElementById("whitecolor") , null).getPropertyValue("color");
@@ -92,6 +139,7 @@ function hideFiverrNavigationMenu() {
         document.getElementById("btnatxt").style.color = c2;
         document.getElementById("bgMOF").style.opacity = "0";
         document.getElementById("bgMOF").style.pointerEvents = "none";
+        setTimeout(function() {fiverractive = false}, 150) ;
     for(var i=0; i<4; i++) {
         j = i+1;
         document.getElementById("hover" + j).style.color = c;        
@@ -226,6 +274,11 @@ function showBurgerNavigationMenu() {
             j = i+1;
             document.getElementById("line"+ j).style.backgroundColor = c2;      
         }
+        document.getElementById("line1").style.transform = "translateY(10px) rotate(45deg)";
+        document.getElementById("line1").style.width = "35px";
+        document.getElementById("line3").style.transform = "translateY(-10px) rotate(-45deg)";
+        document.getElementById("line3").style.width = "35px";
+        document.getElementById("line2").style.width = "3px";
         /*for(var i=0; i<4; i++) {
             setTimeout(MOFLEshow, i*150, i)
         }
@@ -247,7 +300,6 @@ function showBurgerNavigationMenu() {
 function hideBurgerNavigationMenu() {
     const check = document.getElementById("burgerpopup").style.height 
     if(check == "100%"){
-    if(mouseonheader==false){
         const c = window.getComputedStyle( document.body , null).getPropertyValue("background-color");
         const c2 = window.getComputedStyle( document.getElementById("whitecolor") , null).getPropertyValue("color");
         //document.getElementById("arrowMOF").style.transform = "rotate(0deg)";
@@ -262,6 +314,11 @@ function hideBurgerNavigationMenu() {
             j = i+1;
             document.getElementById("line"+ j).style.backgroundColor = c;      
         }
+        document.getElementById("line1").style.transform = "none";
+        document.getElementById("line1").style.width = "30px";
+        document.getElementById("line3").style.transform = "none";
+        document.getElementById("line3").style.width = "30px";
+        document.getElementById("line2").style.width = "30px";
     /*for(var i=0; i<4; i++) {
         j = i+1;
         const m = document.getElementById("PLE" + j);
@@ -271,7 +328,6 @@ function hideBurgerNavigationMenu() {
         setTimeout(function() {m.style.opacity = "0"}, 450)
         m.style.pointerEvents = "none";
     }*/
-    }
     }
     
 }
@@ -299,3 +355,11 @@ function hideBurgerNavigationMenu() {
 
 
 window.addEventListener("scroll", resizeHeaderOnScroll);
+window.addEventListener("resize", fixwidth);
+
+
+
+
+
+
+

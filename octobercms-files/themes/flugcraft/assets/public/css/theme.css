@@ -1465,41 +1465,52 @@ p {
   top: 0;
 }
 
-.popupMOFlinks {
-  display: flex;
-  flex: 1;
-  justify-content: space-between;
-  padding: 120px 50px 0px 50px;
+.heaL {
+  margin: 170px 0px;
   color: #f3f1ee;
   pointer-events: none;
-  align-items: center;
-  height: 320px;
 }
 
-.MOF-link-element {
-  flex: 1;
-  left: 0;
-  right: 0;
-  display: flex;
-  justify-content: center;
-  align-items: stretch;
-  border-bottom: 1px solid #f3f1ee;
-  border-top: 1px solid #f3f1ee;
-  flex-direction: column;
-  justify-content: space-between;
-  transform: translate(0px, -30px);
+.heaLE {
+  padding: 0 50px;
+  transform: translateY(-30px);
   transition: 1s ease;
   opacity: 0;
   pointer-events: none;
-  margin: auto 60px;
+  margin-top: -1px !important;
 }
 
-.MOF-link-element h5 {
-  margin: 20px 0 20px 0;
+.heaCH {
+  border-top: 1px solid #f3f1ee;
+  background-color: transparent;
+  padding: 20px 0;
 }
 
-.MOF-link-element p {
-  margin: 20px 0 20px 0;
+.heaCB {
+  padding: 0 0 20px 0;
+}
+
+.heaCF {
+  border-bottom: 1px solid #f3f1ee;
+  margin-bottom: 0;
+  padding: 20px 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  text-decoration: none;
+}
+.heaCF svg {
+  width: 25px;
+  height: 25px;
+  border: 1px solid #f3f1ee;
+  padding: 2px;
+  border-radius: 20px;
+}
+.heaCF:hover svg {
+  background-color: #f3f1ee;
+}
+.heaCF:hover svg g {
+  fill: #0d3937;
 }
 
 .popupP {
@@ -1545,7 +1556,6 @@ p {
   display: none;
   order: -1;
   flex: 1;
-  display: flex;
   justify-content: flex-start;
   align-items: left;
 }
@@ -1591,6 +1601,9 @@ p {
     float: none;
     width: 60px;
   }
+  .header-burger {
+    display: flex;
+  }
   .burgericon {
     height: 30px;
     width: 30px;
@@ -1606,19 +1619,11 @@ p {
     width: 30px;
     border-radius: 10px;
   }
-  .burgericon:hover div {
-    background-color: #f3f1ee;
+  .heaCB, .heaCF, .heaCH {
+    padding: 15px 0;
   }
-  .burgericon:hover .line1 {
-    transform: translateY(10px) rotate(45deg);
-    width: 35px;
-  }
-  .burgericon:hover .line3 {
-    transform: translateY(-10px) rotate(-45deg);
-    width: 35px;
-  }
-  .burgericon:hover .line2 {
-    width: 3px;
+  .heaL {
+    margin: 110px 0;
   }
 }
 .footer {
@@ -1634,59 +1639,6 @@ p {
   bottom: 0;
   z-index: 0;
   color: #f3f1ee;
-}
-
-.footer-links {
-  flex: 1;
-  display: flex;
-  justify-content: stretch;
-  align-items: stretch;
-}
-
-.footer-link-element {
-  flex: 1;
-  margin: 60px;
-  left: 0;
-  right: 0;
-  display: flex;
-  justify-content: center;
-  align-items: stretch;
-  border-bottom: 1px solid #f3f1ee;
-  border-top: 1px solid #f3f1ee;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.footer-link-element h5 {
-  margin: 20px 0 20px 0;
-}
-
-.footer-link-element p {
-  margin: 20px 0 20px 0;
-}
-
-.footer-link-element-link {
-  margin-top: auto;
-  margin-bottom: 20px;
-  justify-content: space-between;
-  display: flex;
-  align-items: flex-end;
-  text-decoration: none;
-}
-.footer-link-element-link:hover svg {
-  background-color: #f3f1ee;
-}
-.footer-link-element-link:hover svg g {
-  fill: #0d3937;
-}
-
-.footer-link-element-link svg {
-  width: 20px;
-  height: 20px;
-  fill: black;
-  border: 1px solid #f3f1ee;
-  padding: 2px;
-  border-radius: 20px;
 }
 
 .fooL {

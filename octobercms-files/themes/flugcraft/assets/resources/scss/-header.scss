@@ -139,42 +139,55 @@
     
 }
 
-.popupMOFlinks {
-    display: flex;
-    flex: 1;
-    justify-content: space-between;
-    padding: 120px 50px 0px 50px;
+.heaL {
+    margin: 170px 0px;
     color: $color1;
     pointer-events: none;
-    align-items: center;
-    height: 320px;
 }
 
-.MOF-link-element {
-    flex: 1;
-    left: 0;
-    right: 0;
-    display: flex;
-    justify-content: center;
-    align-items: stretch;
-    border-bottom: 1px solid $color1;
-    border-top: 1px solid $color1;
-    flex-direction: column;
-    justify-content: space-between;
-    transform: translate(0px , -30px);
+.heaLE {
+    padding: 0 50px;
+    transform: translateY(-30px);
     transition: 1s ease;
     opacity: 0;
     pointer-events: none;
-    margin: auto 60px;
+    margin-top: -1px !important;
 }
 
-
-.MOF-link-element h5 {
-    margin: 20px 0 20px 0;
+.heaCH {
+    border-top: 1px solid $color1;
+    background-color: transparent;
+    padding: 20px 0;
 }
 
-.MOF-link-element p {
-    margin: 20px 0 20px 0;
+.heaCB {
+    padding: 0 0 20px 0;
+}
+
+.heaCF {
+    border-bottom: 1px solid $color1;
+    margin-bottom: 0;
+    padding: 20px 0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    text-decoration: none;
+
+    & svg {
+        width: 25px;
+        height: 25px;
+        border: 1px solid $color1;
+        padding: 2px;
+        border-radius: 20px;
+    }
+
+    &:hover svg {
+        background-color: $color1;
+
+        & g {
+            fill: $color2;
+        }
+    }
 }
 
 
@@ -225,7 +238,6 @@
     display: none;
     order: -1;
     flex: 1;
-    display: flex;
     justify-content: flex-start;
     align-items: left;
 }
@@ -288,6 +300,9 @@
         width: 60px;
     }
 
+    .header-burger{
+        display: flex;
+    }
 
     .burgericon {
         height: 30px;
@@ -306,35 +321,14 @@
             border-radius: 10px;
         }
     }
-    
 
-
-
-
-    // BURGER ACTIVE
-
-    .burgericon:hover {
-
-        & div {
-            background-color: $color1;
-        }
-    
-        & .line1 {
-            transform: translateY(10px) rotate(45deg);
-            width: 35px;
-        }
-    
-        & .line3 {
-            transform: translateY(-10px) rotate(-45deg);
-            width: 35px;
-        }
-    
-        & .line2 {
-            width: 3px;
-        }
-    
+    .heaCB, .heaCF, .heaCH {
+        padding: 15px 0;
     }
 
-
+    .heaL {
+        margin: 110px 0;
+    }
+    
     
 }
