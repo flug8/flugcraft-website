@@ -1,8 +1,11 @@
-name: My Theme
+name: Flugcraft
 description: 'Just a bare-bones UIkit OctoberCMS theme w/ Laravel Mix support'
-author: Ompmega
+author: 'Flurin Graeff'
 homepage: 'https://github.com/ompmega'
+authorCode: ''
 code: oc-theme
+parent: ''
+database: '0'
 previewImage: assets/theme-preview.png
 require:
     - Ompmega.MixHelper

@@ -1,0 +1,125 @@
+
+
+// ABOUT ME
+
+
+.aboutme {
+    color: $color2;
+    padding: 70px 50px 70px 50px;
+    background-color: $color3;
+    border-radius: 0 0 35px 35px;
+}
+
+.aboutme_content {
+    justify-content: center;
+    margin: 70px 0px 0px 0px;
+    
+    & .aboutme_content_left, .aboutme_content_right {
+        height: 300px;
+        display: flex;
+        align-items: center;
+        padding: 0 0;
+        margin: 0 25px;
+
+        & img {
+            height: 300px;
+            width: 300px;
+            object-fit: cover;
+            border-radius: 35px;
+        }
+    }
+
+    & .aboutme_content_left {
+        justify-content: flex-end;
+    }
+
+    & .aboutme_content_right {
+        justify-content: flex-start;
+        width: 600px;
+    }
+}
+
+
+// OTHER PROJECTS
+
+
+.otherprojects {
+    padding: 70px 50px;
+
+    & h2 {
+        text-align: center;
+    }
+
+    & .otherprojects_grid {
+        margin: 70px 0 0 0;
+        & .otherprojects_element {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            padding: 0 25px;
+            cursor: pointer;
+            
+            & img {
+                margin: 0px;
+                height: 400px;
+                width: 100%;
+                object-fit: cover;
+                border-radius: 35px;
+                filter: brightness(.5);
+            }
+
+            & .otherprojects_text {
+                margin-top: -60px;
+                border-top: 1px solid $color1;
+                width: calc(100% - 60px);
+                margin-bottom: 0;
+                padding: 12px 0;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                & svg {
+                    width: 25px;
+                    height: 25px;
+                    border: 1px solid $color1;
+                    padding: 2px;
+                    border-radius: 20px;
+                }
+            }
+
+            &:hover .otherprojects_text svg {
+                background-color: $color1;
+                & g {
+                    fill: $color2;
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+// MOBILE
+
+
+@media (max-width: 1200px) {
+    .aboutme_content_left, .aboutme_content_right {
+        justify-content: center !important;
+    }
+}
+
+
+@media (max-width: 960px) {
+    .aboutme {
+        padding: 0px 20px 35px 20px;
+    }
+}

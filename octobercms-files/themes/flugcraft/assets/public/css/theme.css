@@ -1324,7 +1324,119 @@
 @import "components/padding";
 @import "components/position";
 @import "components/transition";
-@import "components/visibility";
+*/
+/* ========================================================================
+   Component: Visibility
+ ========================================================================== */
+/*
+ * Hidden
+ * `hidden` attribute also set here to make it stronger
+ */
+[hidden],
+.uk-hidden {
+  display: none !important;
+}
+
+/* Phone landscape and bigger */
+@media (min-width: 640px) {
+  .uk-hidden\@s {
+    display: none !important;
+  }
+}
+/* Tablet landscape and bigger */
+@media (min-width: 960px) {
+  .uk-hidden\@m {
+    display: none !important;
+  }
+}
+/* Desktop and bigger */
+@media (min-width: 1200px) {
+  .uk-hidden\@l {
+    display: none !important;
+  }
+}
+/* Large screen and bigger */
+@media (min-width: 1600px) {
+  .uk-hidden\@xl {
+    display: none !important;
+  }
+}
+/*
+ * Visible
+ */
+/* Phone portrait and smaller */
+@media (max-width: 639px) {
+  .uk-visible\@s {
+    display: none !important;
+  }
+}
+/* Phone landscape and smaller */
+@media (max-width: 959px) {
+  .uk-visible\@m {
+    display: none !important;
+  }
+}
+/* Tablet landscape and smaller */
+@media (max-width: 1199px) {
+  .uk-visible\@l {
+    display: none !important;
+  }
+}
+/* Desktop and smaller */
+@media (max-width: 1599px) {
+  .uk-visible\@xl {
+    display: none !important;
+  }
+}
+/* Visibility
+ ========================================================================== */
+.uk-invisible {
+  visibility: hidden !important;
+}
+
+/* Based on the State of the Parent Element
+ ========================================================================== */
+/*
+ * Can't use `display: none` nor `visibility: hidden` because both are not focusable.
+ * The target stays visible if any element within receives focus through keyboard.
+ */
+/*
+ * Discard space when hidden.
+ */
+.uk-visible-toggle:not(:hover):not(:focus) .uk-hidden-hover:not(:focus-within) {
+  position: absolute !important;
+  width: 0 !important;
+  height: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  overflow: hidden !important;
+}
+
+/*
+ * Keep space when hidden.
+ */
+.uk-visible-toggle:not(:hover):not(:focus) .uk-invisible-hover:not(:focus-within) {
+  opacity: 0 !important;
+}
+
+/* Based on Hover Capability of the Pointing Device
+ ========================================================================== */
+/*
+ * Hover
+ */
+/* Hide if primary pointing device doesn't support hover, e.g. touch screens. */
+@media (hover: none) {
+  .uk-hidden-touch {
+    display: none !important;
+  }
+}
+/* Hide if primary pointing device supports hover, e.g. mice. */
+@media (hover) {
+  .uk-hidden-notouch {
+    display: none !important;
+  }
+}
+/*
 @import "components/inverse";
 
 // =================================================
@@ -1351,6 +1463,14 @@ h6 {
 
 p {
   font-size: 18px;
+}
+
+h1 {
+  font-size: 64px;
+}
+
+h2 {
+  font-size: 36px;
 }
 
 .header {
@@ -1385,6 +1505,9 @@ p {
   display: flex;
   justify-content: flex-start;
   align-items: center;
+}
+.header-left span {
+  cursor: pointer;
 }
 
 .header-center {
@@ -1426,13 +1549,14 @@ p {
   display: flex;
 }
 
-.navElements a {
+.navElements .active {
   width: 122px;
   margin: auto 8px;
   text-align: center;
+  cursor: pointer;
 }
 
-.header-center a {
+.header-center .active {
   font-size: 16px;
   text-decoration: none;
   color: #0d3937;
@@ -1495,9 +1619,10 @@ p {
   margin-bottom: 0;
   padding: 20px 0;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: space-between;
   text-decoration: none;
+  cursor: pointer;
 }
 .heaCF svg {
   width: 25px;
@@ -1516,40 +1641,104 @@ p {
 .popupP {
   height: 0px;
   width: 100%;
-  background-color: #0d3937;
+  background-color: #f3f1ee;
   border-radius: 0 0 35px 35px;
   transition: 0.5s ease;
   position: fixed;
   top: 0;
 }
 
-.popupPlinks {
-  display: flex;
-  flex: 1;
-  justify-content: space-between;
-  padding: 180px 50px 0px 50px;
+.proL {
+  margin: 170px 0px;
   color: #f3f1ee;
   pointer-events: none;
-  align-items: center;
-  height: 420px;
+  padding: 0px 38px;
 }
 
-.popupPlink-element {
-  flex: 1;
-  left: 0;
-  right: 0;
-  display: flex;
-  justify-content: center;
-  align-items: stretch;
-  flex-direction: column;
-  justify-content: space-between;
-  transform: translate(0px, -60px);
+.proLE {
+  margin: 0 12px;
+  padding: 0 25px;
+  transform: translateY(-30px);
   transition: 1s ease;
   opacity: 0;
   pointer-events: none;
-  margin: auto 30px;
-  background-color: #ECC97A;
-  height: 360px;
+  margin-top: -1px !important;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs2/142015082/original/b5880f689f29b12c7c15baf6f3f23c1dea2eb3d4/winter-forest-logo-animation-intro.jpg");
+  background-position: center;
+  background-size: cover;
+  height: 400px;
+  border-radius: 35px;
+  color: #f3f1ee;
+  text-decoration: none;
+}
+.proLE:hover .proCF svg {
+  background-color: #f3f1ee;
+}
+.proLE:hover .proCF svg g {
+  fill: #0d3937;
+}
+
+.proLEX {
+  background: #e7e5e2;
+}
+.proLEX div {
+  background-color: #e7e5e2;
+  margin: 0 -12.5px;
+  border-radius: 35px;
+}
+.proLEX .proCB {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+}
+.proLEX .proCB .proLEXarrow {
+  width: 150px;
+  height: 150px;
+}
+.proLEX .proCB .proLEXarrow path {
+  stroke: #0d3937;
+  stroke-width: 1;
+}
+.proLEX:hover .proCB .proLEXarrow path {
+  stroke: #e7e5e2;
+}
+.proLEX:hover div {
+  background: #0d3937;
+}
+
+.proCH {
+  background-color: transparent;
+  padding: 30px 0;
+  height: 117px;
+}
+
+.proCB {
+  padding: 20px 0;
+  height: 180px;
+}
+
+.proCF {
+  margin-bottom: 0;
+  padding: 0 0 15px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-decoration: none;
+  border-top: 1px solid #f3f1ee;
+}
+.proCF h6 {
+  color: #f3f1ee;
+}
+.proCF svg {
+  width: 25px;
+  height: 25px;
+  border: 1px solid #f3f1ee;
+  padding: 2px;
+  border-radius: 20px;
+}
+.proCF svg g {
+  fill: #f3f1ee;
 }
 
 .header-burger {
@@ -1569,8 +1758,41 @@ p {
   top: 0;
 }
 
+.burgernavigation {
+  margin: 110px 50px;
+  pointer-events: none;
+}
+
+.burgernavigationelement {
+  border-bottom: 1px solid #f3f1ee;
+  border-top: 1px solid #f3f1ee;
+  margin-bottom: -1px;
+  padding: 30px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-decoration: none;
+  transition: 1s ease;
+  opacity: 0;
+  transform: translateY(-30px);
+  pointer-events: none;
+}
+.burgernavigationelement svg {
+  width: 25px;
+  height: 25px;
+  border: 1px solid #f3f1ee;
+  padding: 2px;
+  border-radius: 20px;
+}
+.burgernavigationelement:hover svg {
+  background-color: #f3f1ee;
+}
+.burgernavigationelement:hover svg g {
+  fill: #0d3937;
+}
+
 @media (max-width: 1200px) {
-  .navElements a {
+  .navElements .active {
     margin: auto 0;
     width: 106px;
   }
@@ -1626,6 +1848,10 @@ p {
     margin: 110px 0;
   }
 }
+.header2 {
+  background-color: #e7e5e2;
+}
+
 .footer {
   overflow: hidden;
   background-color: #0d3937;
@@ -1664,7 +1890,7 @@ p {
   margin-bottom: 0;
   padding: 20px 0;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: space-between;
   text-decoration: none;
 }
@@ -1726,6 +1952,99 @@ p {
     fill: #f3f1ee;
   }
 }
+.aboutme {
+  color: #0d3937;
+  padding: 70px 50px 70px 50px;
+  background-color: #e7e5e2;
+  border-radius: 0 0 35px 35px;
+}
+
+.aboutme_content {
+  justify-content: center;
+  margin: 70px 0px 0px 0px;
+}
+.aboutme_content .aboutme_content_left, .aboutme_content .aboutme_content_right {
+  height: 300px;
+  display: flex;
+  align-items: center;
+  padding: 0 0;
+  margin: 0 25px;
+}
+.aboutme_content .aboutme_content_left img, .aboutme_content .aboutme_content_right img {
+  height: 300px;
+  width: 300px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 35px;
+}
+.aboutme_content .aboutme_content_left {
+  justify-content: flex-end;
+}
+.aboutme_content .aboutme_content_right {
+  justify-content: flex-start;
+  width: 600px;
+}
+
+.otherprojects {
+  padding: 70px 50px;
+}
+.otherprojects h2 {
+  text-align: center;
+}
+.otherprojects .otherprojects_grid {
+  margin: 70px 0 0 0;
+}
+.otherprojects .otherprojects_grid .otherprojects_element {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  padding: 0 25px;
+  cursor: pointer;
+}
+.otherprojects .otherprojects_grid .otherprojects_element img {
+  margin: 0px;
+  height: 400px;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 35px;
+  filter: brightness(0.5);
+}
+.otherprojects .otherprojects_grid .otherprojects_element .otherprojects_text {
+  margin-top: -60px;
+  border-top: 1px solid #f3f1ee;
+  width: calc(100% - 60px);
+  margin-bottom: 0;
+  padding: 12px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.otherprojects .otherprojects_grid .otherprojects_element .otherprojects_text svg {
+  width: 25px;
+  height: 25px;
+  border: 1px solid #f3f1ee;
+  padding: 2px;
+  border-radius: 20px;
+}
+.otherprojects .otherprojects_grid .otherprojects_element:hover .otherprojects_text svg {
+  background-color: #f3f1ee;
+}
+.otherprojects .otherprojects_grid .otherprojects_element:hover .otherprojects_text svg g {
+  fill: #0d3937;
+}
+
+@media (max-width: 1200px) {
+  .aboutme_content_left, .aboutme_content_right {
+    justify-content: center !important;
+  }
+}
+@media (max-width: 960px) {
+  .aboutme {
+    padding: 0px 20px 35px 20px;
+  }
+}
 * {
   margin: 0px;
   font-family: NeueMontreal-Regular, Arial;
@@ -1742,7 +2061,7 @@ p {
 
 .mainpage {
   background-color: #f3f1ee;
-  padding: 0 50px 35px 50px;
+  padding-bottom: 35px;
   border-radius: 0 0 35px 35px;
 }
 
@@ -1755,8 +2074,22 @@ body {
   background-color: #0d3937;
 }
 
-@media (max-width: 960px) {
-  .mainpage {
-    padding: 0px 20px 35px 20px;
-  }
+.transition {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #0d3937;
+  transition: opacity 1s ease;
+}
+.transition svg {
+  height: 200px;
+  width: 200px;
+}
+.transition svg .b {
+  fill: #e7e5e2;
+  opacity: 0;
 }

@@ -88,7 +88,7 @@
 @import "components/padding";
 @import "components/position";
 @import "components/transition";
-@import "components/visibility";
+*/@import "components/visibility";/*
 @import "components/inverse";
 
 // =================================================
@@ -105,4 +105,5 @@
 @import "-header";
 @import "-footer";
 @import "-button";
+@import "--about";
 @import "_main";

@@ -17,7 +17,7 @@
 
 .mainpage {
     background-color: $color1;
-    padding: 0 50px 35px 50px;
+    padding-bottom: 35px;
     border-radius: 0 0 35px 35px;
 }
 
@@ -32,11 +32,29 @@ body {
     background-color: $color2;
 }
 
+.transition {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $color2;
+    transition: opacity 1s ease;
 
+    & svg {
+        height: 200px;
+        width: 200px;
 
-@media (max-width: 960px) {
-    .mainpage {
-        padding: 0px 20px 35px 20px;
+        & .b {
+            fill: $color3;
+            opacity: 0;
+        }
     }
 }
+
+
+
+
 

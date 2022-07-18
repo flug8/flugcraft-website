@@ -39,6 +39,10 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
+
+    & span {
+        cursor: pointer;
+    }
 }
 
 .header-center {
@@ -88,15 +92,16 @@
     display: flex;
 }
 
-.navElements a {
+.navElements .active {
     width: 122px;
     margin: auto 8px;
     text-align: center;
+    cursor: pointer;
     
 
 }
 
-.header-center a {
+.header-center .active {
     font-size: 16px;
     text-decoration: none;
     color: $color2;
@@ -169,9 +174,10 @@
     margin-bottom: 0;
     padding: 20px 0;
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     justify-content: space-between;
     text-decoration: none;
+    cursor: pointer;
 
     & svg {
         width: 25px;
@@ -197,42 +203,124 @@
 .popupP {
     height: 0px;
     width: 100%;
-    background-color: $color2;
+    background-color: $color1;
     border-radius: 0 0 35px 35px;
     transition: .5s ease;
     position: fixed;
     top: 0;
-    
 }
 
-.popupPlinks {
-    display: flex;
-    flex: 1;
-    justify-content: space-between;
-    padding: 180px 50px 0px 50px;
+
+.proL {
+    margin: 170px 0px;
     color: $color1;
     pointer-events: none;
-    align-items: center;
-    height: 420px;
+    padding: 0px 38px;
 }
 
-.popupPlink-element {
-    flex: 1;
-    left: 0;
-    right: 0;
-    display: flex;
-    justify-content: center;
-    align-items: stretch;
-    flex-direction: column;
-    justify-content: space-between;
-    transform: translate(0px , -60px);
+.proLE {
+    margin: 0 12px;
+    padding: 0 25px;
+    transform: translateY(-30px);
     transition: 1s ease;
     opacity: 0;
     pointer-events: none;
-    margin: auto 30px;
-    background-color: $color5;
-    height: 360px;
+    margin-top: -1px !important;
+    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs2/142015082/original/b5880f689f29b12c7c15baf6f3f23c1dea2eb3d4/winter-forest-logo-animation-intro.jpg");
+    background-position: center;
+    background-size: cover;
+    height: 400px;
+    border-radius: 35px;
+    color: $color1;
+    text-decoration: none;
+
+    &:hover {
+
+        & .proCF svg {
+            background-color: $color1;
+
+            & g {
+                fill: $color2;
+            }
+        }
+        
+    }
 }
+
+.proLEX {
+    background: $color3;
+
+    & div {
+        background-color: $color3;
+        margin: 0 -12.5px;
+        border-radius: 35px;
+    }
+
+    & .proCB {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 400px;
+
+        & .proLEXarrow {
+            width: 150px;
+            height: 150px;
+
+            & path {
+                stroke: $color2;
+                stroke-width: 1;
+            }
+        }
+
+    }
+    &:hover .proCB .proLEXarrow path {
+        stroke: $color3;
+    }
+    &:hover div {
+        background: $color2;
+    }
+}
+
+.proCH {
+    background-color: transparent;
+    padding: 30px 0;
+    height: 117px;
+}
+
+.proCB {
+    padding: 20px 0 ;
+    height: 180px;
+}
+
+.proCF {
+    margin-bottom: 0;
+    padding: 0 0 15px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-decoration: none;
+    border-top: 1px solid $color1;
+
+    & h6 {
+        color: $color1;
+    }
+
+    & svg {
+        width: 25px;
+        height: 25px;
+        border: 1px solid $color1;
+        padding: 2px;
+        border-radius: 20px;
+
+        & g {
+            fill: $color1;
+        }
+    }
+}
+
+
+// BURGER
+
 
 .header-burger {
     display: none;
@@ -253,6 +341,48 @@
     
 }
 
+.burgernavigation {
+    margin: 110px 50px;
+    pointer-events: none;
+
+}
+
+.burgernavigationelement {
+    border-bottom: 1px solid $color1;
+    border-top: 1px solid $color1;
+    margin-bottom: -1px;
+    padding: 30px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-decoration: none;
+    transition: 1s ease;
+    opacity: 0;
+    transform: translateY(-30px);
+    pointer-events: none;
+
+
+
+    & svg {
+        width: 25px;
+        height: 25px;
+        border: 1px solid $color1;
+        padding: 2px;
+        border-radius: 20px;
+    }
+
+    &:hover svg {
+        background-color: $color1;
+
+        & g {
+            fill: $color2;
+        }
+    }
+}
+
+
+
+
 
 
 
@@ -266,7 +396,7 @@
 
 
 @media (max-width: 1200px) {
-    .navElements a {
+    .navElements .active {
         margin: auto 0;
         width: 106px;
     }
@@ -331,4 +461,10 @@
     }
     
     
+}
+
+
+
+.header2 {
+    background-color: $color3;
 }
