@@ -1,0 +1,78 @@
+uuid: 79d4ef54-c78a-45f6-882a-6bc314519dae
+handle: Flugcraft\Products
+type: entry
+name: Product
+drafts: false
+
+primaryNavigation:
+    label: Product
+    icon: icon-magic
+    order: 110
+
+navigation:
+    icon: icon-magic
+    order: 10
+
+fields:
+    slogan:
+        label: Short Description
+        type: textarea
+        size: small
+    description:
+        label: Description
+        type: textarea
+        size: large
+    price:
+        label: starting at Price
+        type: number
+    file_format:
+        label: File Format
+        type: dropdown
+        options:
+            mp4: mp4
+    resolution:
+        label: Resolution
+        type: dropdown
+        options:
+            1080p: 1080p
+            4k: 4k
+    length:
+        label: Length (s)
+        type: number
+    type:
+        label: Type
+        type: dropdown
+        options:
+            picture: Picture
+            video: Video
+    delivery_time:
+        label: Delivery Time (days)
+        type: number
+    revisions:
+        label: Revisions (Amount)
+        type: number
+    rating:
+        label: Rating
+        type: number
+        min: 1
+        max: 5
+    rating_amount:
+        label: Amount of Ratings
+        type: number
+    ratings:
+        type: mixin
+        source: Flugcraft\Ratings
+        tab: General
+    images:
+        type: mediafinder
+        label: Images
+        mode: image
+    video:
+        type: mediafinder
+        label: Video
+        maxItems: 1
+    link:
+        label: Fiverr Product Link
+        type: text
+        
+

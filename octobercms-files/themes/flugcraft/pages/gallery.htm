@@ -9,5 +9,6 @@ handle = "Fields\SocialLinks"
 
 
 
-    <li>{{links.social_links.url}}</li>
-
+{% for link in links.social_links|default([]) %}
+    <li>{{link.url}}</li>
+{% endfor %}
