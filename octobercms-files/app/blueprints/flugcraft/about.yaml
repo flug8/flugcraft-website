@@ -6,7 +6,7 @@ drafts: true
 
 
 primaryNavigation:
-    label: Flugcraft
+    label: Sites
     icon: octo-icon-file
     iconSvg: modules/tailor/assets/images/blog-icon.svg
 

@@ -1,11 +1,27 @@
 title = "Home"
 url = "/"
 layout = "default"
-is_hidden = 0
+
+[global home]
+handle = "Flugcraft\Home"
 ==
-<section class="uk-section uk-section-default uk-section-large">
-    <div class="uk-container">
-        <h1 class="uk-heading-medium">My Theme <small class="uk-text-muted uk-text-lead">By Ompmega</small></h1>
-        <p class="uk-text-lead">Just a bare-bones UIkit starter OctoberCMS theme</p>
+<div class="homemain">
+    <div class="homemain2">
+        <h1 id="typeithome"></h1>
     </div>
-</section>
+</div>
+<div class="home2">
+    <h2>{{home.title2}}</h2>
+    <div class="home2elements" uk-grid>
+        {% for feature in home.features%}
+        <div class="uk-card uk-width-expand@m">
+            {{feature.icon | md}}
+            <h3>{{feature.title}}</h3>
+            <p class="uk-card-footer">{{feature.description}}</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+

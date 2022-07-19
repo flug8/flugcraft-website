@@ -6557,6 +6557,11 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha512-/aCDEGatGvZ2BIk+HmLf4ifCJFwvKFNb9/JeZPMulfgFracn9QFcAf5GO8B/mweUjSoblS5In0cWhqpfs/5PQA==
 
+typeit@^8.7.0:
+  version "8.7.0"
+  resolved "https://registry.yarnpkg.com/typeit/-/typeit-8.7.0.tgz#97f1e62c12543a7df9b9ca2c45cf6d27c050d777"
+  integrity sha512-MeraWJAquZr0EPo2yRYQnSdAxIuzgS5s4JEvzOdp63ZRRpETxtiHYvCJiK4aJA6FuScz3oUJkjmjQsLrx6VOMA==
+
 uglify-js@3.4.x:
   version "3.4.10"
   resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.4.10.tgz#9ad9563d8eb3acdfb8d38597d2af1d815f6a755f"

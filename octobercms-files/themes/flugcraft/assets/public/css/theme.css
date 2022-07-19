@@ -1473,16 +1473,18 @@ h2 {
   font-size: 36px;
 }
 
+h3 {
+  font-size: 24px;
+}
+
 .header {
-  overflow: hidden;
   background-color: #f3f1ee;
   padding: 0px 0px;
   align-items: flex-start;
   justify-content: center;
   display: flex;
   height: 120px;
-  position: -webkit-sticky;
-  position: sticky;
+  position: fixed;
   top: 0;
   right: 0;
   left: 0;
@@ -1852,6 +1854,37 @@ h2 {
   background-color: #e7e5e2;
 }
 
+.header3 .header-wrapper {
+  border-bottom: 1px solid #f3f1ee;
+}
+.header3 .header-wrapper .header-center .navElements .active {
+  color: #f3f1ee;
+}
+.header3 .header-wrapper .header-center .hoverrunbox .hoverrun {
+  background-color: #f3f1ee;
+}
+.header3 .header-wrapper .header-right .btna {
+  color: #0d3937;
+  background-color: #f3f1ee;
+}
+.header3 .header-wrapper .header-right .btna .arrowMOF path {
+  stroke: #0d3937;
+}
+.header3 .header-wrapper .header-right .btna .fiverricon path, .header3 .header-wrapper .header-right .btna .fiverricon circle {
+  fill: #0d3937;
+}
+.header3 .header-wrapper .header-burger .burgericon div {
+  background-color: #f3f1ee;
+}
+
+.header4 {
+  background-color: transparent;
+}
+
+.header5 {
+  background-color: #0d3937;
+}
+
 .footer {
   overflow: hidden;
   background-color: #0d3937;
@@ -1990,6 +2023,7 @@ h2 {
 }
 .otherprojects h2 {
   text-align: center;
+  color: #0d3937;
 }
 .otherprojects .otherprojects_grid {
   margin: 70px 0 0 0;
@@ -2045,6 +2079,66 @@ h2 {
     padding: 0px 20px 35px 20px;
   }
 }
+.homemain {
+  display: table;
+  position: relative;
+  margin-top: -120px;
+  width: 100%;
+  height: calc(100vh + 75px);
+  overflow: hidden;
+  border-radius: 0px 0px 35px 35px;
+  z-index: 25;
+}
+.homemain .homemain2 {
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/storage/app/media/home/1.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  transition: none;
+}
+.homemain .homemain2 #typeithome {
+  margin: 0 50px;
+  width: 100%;
+  color: #f3f1ee;
+  text-align: center;
+}
+
+.typeithomecolored2 {
+  color: #ECC97A;
+}
+
+.home2 {
+  padding: 35px 0 70px 0;
+  margin-top: -35px;
+  background-color: #e7e5e2;
+  text-align: center;
+  z-index: 24;
+  border-radius: 0 0 35px 35px;
+  color: #0d3937;
+}
+.home2 h2 {
+  padding: 70px 50px;
+}
+.home2 .home2elements {
+  margin: 0 50px;
+}
+.home2 .home2elements .uk-card {
+  text-align: center;
+  padding: 0;
+}
+.home2 .home2elements .uk-card svg {
+  width: 180px;
+  height: 180px;
+}
+.home2 .home2elements .uk-card svg g {
+  fill: #0d3937;
+}
+
 * {
   margin: 0px;
   font-family: NeueMontreal-Regular, Arial;
@@ -2060,6 +2154,7 @@ h2 {
 }
 
 .mainpage {
+  margin-top: 120px;
   background-color: #f3f1ee;
   padding-bottom: 35px;
   border-radius: 0 0 35px 35px;
@@ -2072,18 +2167,20 @@ div {
 
 body {
   background-color: #0d3937;
+  height: 100vh;
 }
 
 .transition {
   position: fixed;
-  height: 100%;
+  height: calc(100% + 120px);
   width: 100%;
   z-index: 1000;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #0d3937;
-  transition: opacity 1s ease;
+  transition: opacity 0.3s ease;
+  margin-top: -120px;
 }
 .transition svg {
   height: 200px;
@@ -2092,4 +2189,10 @@ body {
 .transition svg .b {
   fill: #e7e5e2;
   opacity: 0;
+}
+
+@media (max-width: 960px) {
+  .mainpage {
+    margin-top: 80px;
+  }
 }

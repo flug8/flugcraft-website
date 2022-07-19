@@ -4,14 +4,13 @@
 
 
 .header {
-    overflow: hidden;
     background-color: $color1;
     padding: 0px 0px;
     align-items: flex-start;
     justify-content: center;
     display: flex;
     height: 120px;
-    position: sticky;
+    position: fixed;
     top: 0;
     right: 0;
     left: 0;
@@ -465,6 +464,45 @@
 
 
 
-.header2 {
+.header2 {  //$color3 elements on top
     background-color: $color3;
+}
+
+.header3 {  // header invert
+    & .header-wrapper {
+        border-bottom: 1px solid $color1;
+        & .header-center{
+            & .navElements .active{
+                color: $color1;
+            }
+            & .hoverrunbox .hoverrun {
+                background-color: $color1;
+            }
+        }
+        & .header-right .btna {
+            color: $color2;
+            background-color: $color1;
+            & .arrowMOF path {
+                stroke: $color2;
+            }
+            & .fiverricon {
+                & path, circle {
+                    fill: $color2;
+                }
+            }
+        }
+        & .header-burger .burgericon div {
+            background-color: $color1;
+        }
+
+    }
+
+}
+
+.header4 {  // header transparent
+    background-color: transparent;
+}
+
+.header5 {
+    background-color: $color2;
 }

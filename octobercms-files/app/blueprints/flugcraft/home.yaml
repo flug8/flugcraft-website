@@ -1,0 +1,37 @@
+uuid: 796e44f1-1f3c-46d0-8447-748ad281aa83
+handle: Flugcraft\Home
+type: global
+name: Home
+
+
+navigation:
+    parent: Flugcraft\About
+    order: 102
+
+fields:
+    title2:
+        label: Title
+        type: text
+
+    features:
+        label: Features
+        type: repeater
+        form:
+            fields:
+                title:
+                    label: Title
+                    type: text
+                    span: row
+                    spanClass: col-md-3
+
+                description:
+                    label: Description
+                    type: text
+                    span: row
+                    spanClass: col-md-9
+
+                icon:
+                    label: SVG
+                    type: codeeditor
+                    size: small
+                    language: html

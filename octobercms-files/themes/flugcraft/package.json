@@ -18,6 +18,7 @@
   },
   "dependencies": {
     "jquery": "^3.3.*",
+    "typeit": "^8.7.0",
     "uikit": "^3.2.*",
     "vue": "^2.*"
   }

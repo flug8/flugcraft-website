@@ -1,5 +1,4 @@
 
-
 // VARIABLES
 
 const isTouchDevice = () => {  
@@ -15,9 +14,19 @@ var productinactive = true;
 var burgeractive = false;
 var fiverractive = false;
 
+var headerwhite = true;
+
 
 // FUNCTIONS
 
+
+function headerDefault() {
+    if(headerwhite){
+        document.getElementById("header").classList.remove("header3");
+    }else{
+        document.getElementById("header").classList.add("header3");
+    }
+}
 
 function fixwidth(){
     const w = window.innerWidth;
@@ -101,22 +110,22 @@ function showFiverrNavigationMenu() {
     hideBurgerNavigationMenu();
     console.log(check);
     if(check == false || check == "0px"){
-        console.log(check + "!")
+        /*console.log(check + "!")
         const c = window.getComputedStyle( document.body , null).getPropertyValue("background-color");
-        const c2 = window.getComputedStyle( document.getElementById("whitecolor") , null).getPropertyValue("color");
+        const c2 = window.getComputedStyle( document.getElementById("whitecolor") , null).getPropertyValue("color");*/
         document.getElementById("arrowMOF").style.transform = "rotate(90deg)";
-        document.getElementById("arrowMOFPath").style.stroke = c;
+        /*document.getElementById("arrowMOFPath").style.stroke = c;
         document.getElementById("fiverrMOFPath").style.fill = c;
-        document.getElementById("fiverrMOFCircle").style.fill = c;
+        document.getElementById("fiverrMOFCircle").style.fill = c;*/
         var h = 220 + document.getElementById("heaL").clientHeight;
         document.getElementById("popupMOF").style.height = h + "px";
-        document.getElementById("header-wrapper").style.borderBottomColor = c2;
+        /*document.getElementById("header-wrapper").style.borderBottomColor = c2;
         document.getElementById("btna").style.backgroundColor = c2;
-        document.getElementById("btnatxt").style.color = c;
+        document.getElementById("btnatxt").style.color = c;*/
         document.getElementById("bgMOF").style.opacity = ".3";
         document.getElementById("bgMOF").style.pointerEvents = "auto";
         setTimeout(function() {fiverractive = true}, 150) ;
-        for(var i=0; i<3; i++) {
+        /*for(var i=0; i<3; i++) {
             j = i+1;
             document.getElementById("line"+ j).style.backgroundColor = c2;      
         }
@@ -127,7 +136,8 @@ function showFiverrNavigationMenu() {
         for(var i=0; i<4; i++) {
             j = i+1;
             document.getElementById("hover" + j + "run").style.backgroundColor = c2;        
-        }
+        }*/
+        document.getElementById("header").classList.add("header3");
         for(var i=0; i<3; i++) {
             const m = document.getElementById("MOFLE" + (i+1));
             m.style.transitionDuration = "1s";
@@ -149,31 +159,32 @@ function hideFiverrNavigationMenu() {
     const check = document.getElementById("popupMOF").style.height 
     if(check !== false && check !== "0px"){
     if(mouseonheader==false){
-        const c = window.getComputedStyle( document.body , null).getPropertyValue("background-color");
-        const c2 = window.getComputedStyle( document.getElementById("whitecolor") , null).getPropertyValue("color");
+        /*const c = window.getComputedStyle( document.body , null).getPropertyValue("background-color");
+        const c2 = window.getComputedStyle( document.getElementById("whitecolor") , null).getPropertyValue("color");*/
         document.getElementById("arrowMOF").style.transform = "rotate(0deg)";
-        document.getElementById("arrowMOFPath").style.stroke = c2;
+        /*document.getElementById("arrowMOFPath").style.stroke = c2;
         document.getElementById("fiverrMOFPath").style.fill = c2;
-        document.getElementById("fiverrMOFCircle").style.fill = c2;
+        document.getElementById("fiverrMOFCircle").style.fill = c2;*/
         document.getElementById("popupMOF").style.height = "0px";
-        document.getElementById("header-wrapper").style.borderBottomColor = c;
+        /*document.getElementById("header-wrapper").style.borderBottomColor = c;
         document.getElementById("btna").style.backgroundColor = c;
-        document.getElementById("btnatxt").style.color = c2;
+        document.getElementById("btnatxt").style.color = c2;*/
         document.getElementById("bgMOF").style.opacity = "0";
         document.getElementById("bgMOF").style.pointerEvents = "none";
-        for(var i=0; i<3; i++) {
+        /*for(var i=0; i<3; i++) {
             j = i+1;
             document.getElementById("line"+ j).style.backgroundColor = c;      
-        }
+        }*/
         setTimeout(function() {fiverractive = false}, 150) ;
-    for(var i=0; i<4; i++) {
+        headerDefault();
+    /*for(var i=0; i<4; i++) {
         j = i+1;
         document.getElementById("hover" + j).style.color = c;        
     }
     for(var i=0; i<4; i++) {
         j = i+1;
         document.getElementById("hover" + j + "run").style.backgroundColor = c;        
-    }
+    }*/
     for(var i=0; i<3; i++) {
         j = i+1;
         const m = document.getElementById("MOFLE" + j);
@@ -196,27 +207,28 @@ function hideFiverrNavigationMenu() {
 function showProductNavigationMenu() {
     const check = document.getElementById("popupP").style.height
     if(check == false || check == "0px"){
-        const c = window.getComputedStyle( document.body , null).getPropertyValue("background-color");
+        /*const c = window.getComputedStyle( document.body , null).getPropertyValue("background-color");
         const c2 = window.getComputedStyle( document.getElementById("whitecolor") , null).getPropertyValue("color");
         //document.getElementById("arrowMOF").style.transform = "rotate(90deg)";
         document.getElementById("arrowMOFPath").style.stroke = c2;
         document.getElementById("fiverrMOFPath").style.fill = c2;
-        document.getElementById("fiverrMOFCircle").style.fill = c2;
+        document.getElementById("fiverrMOFCircle").style.fill = c2;*/
         document.getElementById("popupP").style.height = "620px";
-        document.getElementById("header-wrapper").style.borderBottomColor = c;
+        /*document.getElementById("header-wrapper").style.borderBottomColor = c;
         document.getElementById("btna").style.backgroundColor = c;
-        document.getElementById("btnatxt").style.color = c2;
+        document.getElementById("btnatxt").style.color = c2;*/
         document.getElementById("bgMOF").style.opacity = ".3";
         document.getElementById("bgMOF").style.pointerEvents = "auto";
         productinactive = false;
-        for(var i=0; i<4; i++) {
+        document.getElementById("header").classList.remove("header3");
+        /*for(var i=0; i<4; i++) {
             j = i+1;
             document.getElementById("hover" + j).style.color = c;        
         }
         for(var i=0; i<4; i++) {
             j = i+1;
             document.getElementById("hover" + j + "run").style.backgroundColor = c;        
-        }
+        }*/
         for(var i=0; i<5; i++) {
             const m = document.getElementById("proLE" + (i+1));
             m.style.transitionDuration = "1s";
@@ -236,28 +248,29 @@ function hideProductNavigationMenu() {
     const check = document.getElementById("popupP").style.height 
     if(check == "620px"){
     if(mouseonheader==false){
-        const c = window.getComputedStyle( document.body , null).getPropertyValue("background-color");
+        /*const c = window.getComputedStyle( document.body , null).getPropertyValue("background-color");
         const c2 = window.getComputedStyle( document.getElementById("whitecolor") , null).getPropertyValue("color");
         //document.getElementById("arrowMOF").style.transform = "rotate(0deg)";
         document.getElementById("arrowMOFPath").style.stroke = c2;
         document.getElementById("fiverrMOFPath").style.fill = c2;
-        document.getElementById("fiverrMOFCircle").style.fill = c2;
+        document.getElementById("fiverrMOFCircle").style.fill = c2;*/
         document.getElementById("popupP").style.height = "0px";
-        document.getElementById("header-wrapper").style.borderBottomColor = c;
+        /*document.getElementById("header-wrapper").style.borderBottomColor = c;
         document.getElementById("btna").style.backgroundColor = c;
-        document.getElementById("btnatxt").style.color = c2;
+        document.getElementById("btnatxt").style.color = c2;*/
         document.getElementById("bgMOF").style.opacity = "0";
         document.getElementById("bgMOF").style.pointerEvents = "none";
         productinactive = true;
         hideNavigationHoverEffect("hover1");
-    for(var i=0; i<4; i++) {
+        headerDefault();
+    /*for(var i=0; i<4; i++) {
         j = i+1;
         document.getElementById("hover" + j).style.color = c;        
     }
     for(var i=0; i<4; i++) {
         j = i+1;
         document.getElementById("hover" + j + "run").style.backgroundColor = c;        
-    }
+    }*/
     for(var i=0; i<5; i++) {
         j = i+1;
         const m = document.getElementById("proLE" + j);
@@ -287,21 +300,22 @@ function showBurgerNavigationMenu() {
     mouseOnHeaderStatus(true);
     const check = document.getElementById("burgerpopup").style.height
     if(check == false || check == "0px"){
-        const c = window.getComputedStyle( document.body , null).getPropertyValue("background-color");
+        /*const c = window.getComputedStyle( document.body , null).getPropertyValue("background-color");
         const c2 = window.getComputedStyle( document.getElementById("whitecolor") , null).getPropertyValue("color");
         //document.getElementById("arrowMOF").style.transform = "rotate(90deg)";
         document.getElementById("arrowMOFPath").style.stroke = c;
         document.getElementById("fiverrMOFPath").style.fill = c;
-        document.getElementById("fiverrMOFCircle").style.fill = c;
-        document.getElementById("burgerpopup").style.height = "100%";
-        document.getElementById("header-wrapper").style.borderBottomColor = c2;
+        document.getElementById("fiverrMOFCircle").style.fill = c;*/
+        document.getElementById("burgerpopup").style.height = "100vh";
+        /*document.getElementById("header-wrapper").style.borderBottomColor = c2;
         document.getElementById("btna").style.backgroundColor = c2;
-        document.getElementById("btnatxt").style.color = c;
+        document.getElementById("btnatxt").style.color = c;*/
         burgeractive = true;
-        for(var i=0; i<3; i++) {
+        document.getElementById("header").classList.add("header3");
+        /*for(var i=0; i<3; i++) {
             j = i+1;
             document.getElementById("line"+ j).style.backgroundColor = c2;      
-        }
+        }*/
         document.getElementById("line1").style.transform = "translateY(10px) rotate(45deg)";
         document.getElementById("line1").style.width = "35px";
         document.getElementById("line3").style.transform = "translateY(-10px) rotate(-45deg)";
@@ -324,21 +338,22 @@ function showBurgerNavigationMenu() {
 
 function hideBurgerNavigationMenu() {
     const check = document.getElementById("burgerpopup").style.height 
-    if(check == "100%"){
-        const c = window.getComputedStyle( document.body , null).getPropertyValue("background-color");
+    if(check == "100vh"){
+        /*const c = window.getComputedStyle( document.body , null).getPropertyValue("background-color");
         const c2 = window.getComputedStyle( document.getElementById("whitecolor") , null).getPropertyValue("color");
         //document.getElementById("arrowMOF").style.transform = "rotate(0deg)";
         document.getElementById("arrowMOFPath").style.stroke = c2;
         document.getElementById("fiverrMOFPath").style.fill = c2;
-        document.getElementById("fiverrMOFCircle").style.fill = c2;
+        document.getElementById("fiverrMOFCircle").style.fill = c2;*/
         document.getElementById("burgerpopup").style.height = "0px";
-        document.getElementById("header-wrapper").style.borderBottomColor = c;
+        /*document.getElementById("header-wrapper").style.borderBottomColor = c;
         document.getElementById("btna").style.backgroundColor = c;
         document.getElementById("btnatxt").style.color = c2;
         for(var i=0; i<3; i++) {
             j = i+1;
             document.getElementById("line"+ j).style.backgroundColor = c;      
-        }
+        }*/
+        headerDefault();
         document.getElementById("line1").style.transform = "none";
         document.getElementById("line1").style.width = "30px";
         document.getElementById("line3").style.transform = "none";
@@ -360,12 +375,26 @@ function hideBurgerNavigationMenu() {
 
 
 
-function headerBackgroundColor () {
+function headerBackgroundColor (u = 0) {
     if(window.location.pathname == "/about") {
         if(document.getElementById("otherprojects").getBoundingClientRect().y < 120){
             document.getElementById("header").classList.remove("header2");
         }else{
             document.getElementById("header").classList.add("header2");
+        }
+    }else if(window.location.pathname == "/") {
+        const header = document.getElementById("header").classList;
+        const h2 = document.querySelector(".home2").getBoundingClientRect().y;
+        if( h2 > 120) {
+            header.add("header4");
+            header.remove("header2");
+            headerwhite = false;
+            headerDefault();
+        }else {
+            header.remove("header4");
+            header.add("header2");
+            headerwhite = true;
+            headerDefault();
         }
     }
 }
@@ -394,6 +423,8 @@ function headerBackgroundColor () {
 window.addEventListener("scroll", resizeHeaderOnScroll);
 window.addEventListener("scroll", headerBackgroundColor);
 window.addEventListener("resize", fixwidth);
+window.addEventListener("scroll", toggleHeader);
+window.addEventListener("scroll", hideAll);
 
 
 
@@ -405,20 +436,79 @@ window.transitionToPage = function(href) {
     document.getElementById("transition").style.pointerEvents = "auto";
     setTimeout(function() { 
         window.location.href = href
-    }, 1000)
+    }, 500)
 }
 
 document.addEventListener('DOMContentLoaded', function(event) {
-    document.getElementById("transition").style.transitionDuration = "1s";
     document.getElementById("transition").style.opacity = 0;
     document.getElementById("transition").style.pointerEvents = "none";
-    headerBackgroundColor();
+    headerBackgroundColor(1);
+    typeIt1();
+    
 })
 
 window.addEventListener("focus", function(event) {
-    document.getElementById("transition").style.transitionDuration = "1s";
     document.getElementById("transition").style.opacity = 0;
     document.getElementById("transition").style.pointerEvents = "none";
     headerBackgroundColor();
 })
 
+
+
+
+function typeIt1 () {
+    const t = new TypeIt("#typeithome", {
+        speed: 50,
+        startdelay: 900,
+        waitUntilVisible: true,
+        lifeLike: true,
+        afterComplete: function (instance) {
+            document.getElementById("typeithomecolored").style.fontSize = "84px";
+            document.getElementById("typeithomecolored").style.color = "rgb(75,178,221)";
+            setTimeout(function() {t.destroy(removeCursor = true);},200)
+        }
+    })
+        .type("Make it better", {delay:1000})
+        .move(-7, {delay:100})
+        .delete(2, {delay:100})
+        .type("<strong class='typeithomecolored2'>your project</strong>", {delay:1000})
+        .move(7 , {delay:200})
+        .delete(6)
+        .type("not just better, ", {delay:700})
+        .type("make it")
+        .break()
+        .type("<strong id='typeithomecolored'>stand out!</strong>")
+        .go();
+        
+
+        
+}
+
+
+document.addEventListener("scroll", function(e) {
+    var h = document.querySelector(".homemain").clientHeight;
+    var y = window.scrollY;
+    if(y >= h){
+        //document.querySelector(".homemain2").style.display = "none";
+    }
+    document.querySelector(".homemain2").style.display = "auto";
+    document.querySelector(".homemain2").style.transform = "translateY(" + ( ( y + y / h *120 ) / 2 ) + "px)";
+    document.querySelector("#typeithome").style.zoom = ( h - y / 3) / h;
+    document.querySelector("#typeithome").style.opacity = ( ( h - 120 ) - y ) / h;
+
+    
+});
+
+var pScrollPos = window.pageYOffset;
+
+function toggleHeader() {
+    var cScrollPos = window.pageYOffset;
+
+    if(pScrollPos < cScrollPos && cScrollPos >= 120) {
+        document.getElementById("header").style.transform = "translateY(-120px)";
+    }else{
+        document.getElementById("header").style.transform = "translateY(0px)";
+    }
+
+    pScrollPos = cScrollPos;
+}

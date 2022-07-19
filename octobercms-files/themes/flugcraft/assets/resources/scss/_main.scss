@@ -16,6 +16,7 @@
 }
 
 .mainpage {
+    margin-top: 120px;
     background-color: $color1;
     padding-bottom: 35px;
     border-radius: 0 0 35px 35px;
@@ -30,18 +31,20 @@ div {       // for footer to work including interactive elements
 
 body {
     background-color: $color2;
+    height: 100vh;
 }
 
 .transition {
     position: fixed;
-    height: 100%;
+    height: calc( 100% + 120px );
     width: 100%;
     z-index: 1000;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: $color2;
-    transition: opacity 1s ease;
+    transition: opacity .3s ease;
+    margin-top: -120px;
 
     & svg {
         height: 200px;
@@ -58,3 +61,8 @@ body {
 
 
 
+@media (max-width: 960px) {
+    .mainpage {
+        margin-top: 80px;
+    }
+}
