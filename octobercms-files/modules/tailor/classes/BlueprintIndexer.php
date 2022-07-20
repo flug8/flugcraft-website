@@ -82,7 +82,9 @@ class BlueprintIndexer
             $blueprint->forceSave();
         }
 
-        $this->migrateContentInternal($blueprint);
+        if ($blueprint instanceof EntryBlueprint) {
+            $this->migrateContentInternal($blueprint);
+        }
     }
 
     /**

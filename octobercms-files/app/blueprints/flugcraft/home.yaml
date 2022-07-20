@@ -9,8 +9,13 @@ navigation:
     order: 102
 
 fields:
+    image:
+        label: Background Image
+        type: mediafinder
+        maxItems: 1
+        mode: image
     title2:
-        label: Title
+        label: Title Features
         type: text
 
     features:
@@ -35,3 +40,17 @@ fields:
                     type: codeeditor
                     size: small
                     language: html
+    title4:
+        label: Title Custom (use <br> to enter new line)
+        type: codeeditor
+        size: small
+        language: html
+    description4:
+        label: Description Custom
+        type: textarea
+        size: small
+    image4:
+        label: Image Custom
+        type: mediafinder
+        maxItems: 1
+        mode: image

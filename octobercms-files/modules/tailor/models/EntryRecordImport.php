@@ -140,7 +140,10 @@ class EntryRecordImport extends ImportModel
             $item->extendWithBlueprint();
 
             $this->decodeRepeaterItem($item, $value, $sessionKey);
-            $model->$attr()->add($item, $sessionKey);
+
+            // Repeaters "has many" relations are without a session key
+            // and the saving chain is deferred in memory instead
+            $model->$attr()->add($item);
         }
     }
 

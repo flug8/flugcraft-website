@@ -374,28 +374,43 @@ function hideBurgerNavigationMenu() {
 }
 
 
+/*
+    2: color3
+    3: invert wrapper (do not use)
+    4: transparent
+    5: color2
+*/
 
 function headerBackgroundColor (u = 0) {
+    const header = document.getElementById("header").classList;
     if(window.location.pathname == "/about") {
         if(document.getElementById("otherprojects").getBoundingClientRect().y < 120){
-            document.getElementById("header").classList.remove("header2");
+            header.remove("header2");
         }else{
-            document.getElementById("header").classList.add("header2");
+            header.add("header2");
         }
     }else if(window.location.pathname == "/") {
-        const header = document.getElementById("header").classList;
         const h2 = document.querySelector(".home2").getBoundingClientRect().y;
-        if( h2 > 120) {
-            header.add("header4");
-            header.remove("header2");
-            headerwhite = false;
+        const h3 = document.querySelector(".home3");
+        const h4 = document.querySelector(".home4").getBoundingClientRect().y;
+        header.remove("header2", "header4", "header5");
+        if (h4 < 120) {
+            headerwhite = true;
             headerDefault();
-        }else {
-            header.remove("header4");
+        } else if( h3.getBoundingClientRect().y < 120 && window.getComputedStyle(h3).display !== "none") {
             header.add("header2");
             headerwhite = true;
             headerDefault();
+        } else if (h2 < 120) {
+            headerwhite = true;
+            headerDefault();
+        } else if (true) {
+            header.add("header4");
+            headerwhite = false;
+            headerDefault();
         }
+    }else if(window.location.pathname == "/contact"){
+        header.add("header2");
     }
 }
 
@@ -444,6 +459,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
     document.getElementById("transition").style.pointerEvents = "none";
     headerBackgroundColor(1);
     typeIt1();
+    window.scrollTo(0,0);
     
 })
 
@@ -463,16 +479,20 @@ function typeIt1 () {
         waitUntilVisible: true,
         lifeLike: true,
         afterComplete: function (instance) {
-            document.getElementById("typeithomecolored").style.fontSize = "84px";
+            if(window.innerWidth < 430) {
+                document.getElementById("typeithomecolored").style.fontSize = "64px";  
+            }else{
+                document.getElementById("typeithomecolored").style.fontSize = "84px";
+            }
             document.getElementById("typeithomecolored").style.color = "rgb(75,178,221)";
             setTimeout(function() {t.destroy(removeCursor = true);},200)
         }
     })
-        .type("Make it better", {delay:1000})
-        .move(-7, {delay:100})
+        .type("Make <strong class='typeithomecolored2'>your project</strong> better", {delay:1000})
+        /*.move(-7, {delay:100})
         .delete(2, {delay:100})
         .type("<strong class='typeithomecolored2'>your project</strong>", {delay:1000})
-        .move(7 , {delay:200})
+        .move(7 , {delay:200})*/
         .delete(6)
         .type("not just better, ", {delay:700})
         .type("make it")

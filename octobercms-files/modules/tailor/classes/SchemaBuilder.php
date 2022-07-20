@@ -189,11 +189,13 @@ class SchemaBuilder
      */
     protected function makeDatabaseBlueprint($fieldset)
     {
-        return new DbBlueprint($this->tableName, function($table) use ($fieldset) {
-            foreach ($fieldset->getAllFields() as $fieldObj) {
-                $fieldObj->extendDatabaseTable($table);
-            }
-        });
+        $table = new DbBlueprint($this->tableName);
+
+        foreach ($fieldset->getAllFields() as $fieldObj) {
+            $fieldObj->extendDatabaseTable($table);
+        }
+
+        return $table;
     }
 
     /**

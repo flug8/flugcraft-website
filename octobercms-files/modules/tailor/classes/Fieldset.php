@@ -4,6 +4,7 @@ use October\Contracts\Element\ListElement;
 use October\Contracts\Element\FormElement;
 use October\Contracts\Element\FilterElement;
 use October\Rain\Element\Form\FieldsetDefinition;
+use October\Rain\Database\Schema\Blueprint as DbBlueprint;
 use SystemException;
 
 /**
@@ -81,10 +82,24 @@ class Fieldset extends FieldsetDefinition
     }
 
     /**
-     * getContentColumnNames
+     * getContentColumnNames spins over every field to determine the actual column
+     * names that it uses in the databse, as opposed to its field name
      */
     public function getContentColumnNames()
     {
-        return array_keys($this->getAllFields());
+        $columnNames = [];
+
+        $table = new DbBlueprint('temp');
+        foreach ($this->getAllFields() as $fieldObj) {
+            $fieldObj->extendDatabaseTable($table);
+        }
+
+        foreach ($table->getColumns() as $column) {
+            if (isset($column['name'])) {
+                $columnNames[] = $column['name'];
+            }
+        }
+
+        return $columnNames;
     }
 }

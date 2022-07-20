@@ -4,9 +4,12 @@ layout = "default"
 
 [global home]
 handle = "Flugcraft\Home"
+
+[collection products]
+handle = "Flugcraft\Products"
 ==
 <div class="homemain">
-    <div class="homemain2">
+    <div class="homemain2" style="background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('{{home.image | media}}'); background-position: center center; background-size: cover;">
         <h1 id="typeithome"></h1>
     </div>
 </div>
@@ -17,9 +20,55 @@ handle = "Flugcraft\Home"
         <div class="uk-card uk-width-expand@m">
             {{feature.icon | md}}
             <h3>{{feature.title}}</h3>
-            <p class="uk-card-footer">{{feature.description}}</p>
+            <p class="uk-card-footer">{{feature.description}}{{loop.last}}</p>
         </div>
         {% endfor %}
+    </div>
+</div>
+<div class="home3 uk-visible@m">
+    <div class="home3elements" uk-grid>
+        {% for product in products|filter(product => product.promote) |slice(0, 3) %}
+        <div class="uk-card uk-width-expand@m {% if loop.index == 3 %} uk-visible@l {% endif %}">
+            <div class="uk-card-media-top">
+                <img src="{{ product.images | media}}" alt="">
+            </div>
+            <div class="uk-card-header">
+                <h3>{{ product.title }}</h3>
+            </div>
+            <div class="uk-card-body">
+                <p>{{product.slogan}}</p>
+                <div class="details">
+                    <h4>File: {{product.file_format}}</h4>
+                    <h4>Length: {{product.length}}</h4>
+                    <h4>Resolution: {{product.resolution}}</h4>
+                </div>
+            </div>
+            <div class="uk-card-footer">
+                <div></div>
+                <div class="starrating" style="--rating: {{product.rating}}"></div>
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 172 172"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill="#ffffff"><path d="M160.20023,83.46644c0.67207,0.67182 1.04966,1.58315 1.04966,2.53342c0,0.95027 -0.37759,1.8616 -1.04966,2.53342l-57.33333,57.33333c-1.40602,1.35798 -3.64097,1.33856 -5.02318,-0.04365c-1.38221,-1.38221 -1.40163,-3.61716 -0.04365,-5.02318l51.21644,-51.21644h-134.68317c-1.97902,0 -3.58333,-1.60431 -3.58333,-3.58333c0,-1.97902 1.60431,-3.58333 3.58333,-3.58333h134.68317l-51.21673,-51.21644c-1.35798,-1.40602 -1.33856,-3.64097 0.04365,-5.02318c1.38221,-1.38221 3.61716,-1.40163 5.02318,-0.04365z"></path></g></g></svg>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<div class="home4">
+    <div class="home4elements" uk-grid>
+        <div class="uk-width-expand@s home4element1">
+            <div>
+                <img src="{{home.image4 |media}}" alt="">
+            </div>
+        </div>
+        <div class="uk-width-expand@s home4element2">
+            {{home.title4 |md}}
+            <span>{{home.description4}}</span>
+            <button class="btna btn2" onclick="hideAll(); transitionToPage('/contact')">
+                <p id="btnatxt">Contact me now</p>
+                <svg id="arrowMOF" class="arrowMOF" width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path id="arrowMOFPath" d="M8.5 5L15.5 12L8.5 19" stroke="#130F26" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+        </div>
     </div>
 </div>
 

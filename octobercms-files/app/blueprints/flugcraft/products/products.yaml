@@ -14,6 +14,11 @@ navigation:
     order: 10
 
 fields:
+    promote:
+        label: Promote
+        type: switch
+        default: false
+        comment: Enable to show this Product on the Landing Page
     slogan:
         label: Short Description
         type: textarea

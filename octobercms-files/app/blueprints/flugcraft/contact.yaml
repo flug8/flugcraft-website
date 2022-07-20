@@ -1,0 +1,16 @@
+uuid: 2f690032-1179-4ed0-9dc3-5091b3fbf28e
+handle: Flugcraft\Contact
+type: global
+name: Contact
+drafts: true
+
+navigation:
+    parent: Flugcraft\About
+    
+fields:
+    form_input:
+        label: Form Input
+        type: repeater
+        form:
+            fields:
+

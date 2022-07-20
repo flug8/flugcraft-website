@@ -124,7 +124,7 @@ class ThemeSeed extends Command
 
         $importModel = new $className;
         $importModel->forceFill($attributes);
-        $importModel->importFile($importFile, ['matches' => $matches]);
+        $importModel->importFile($importFile, ['matches' => $matches, 'sessionKey' => str_random(40)]);
 
         $stats = $importModel->getResultStats();
         $this->line("- <info>{$importName}</info>: {$stats->created} Created / {$stats->updated} Updated / {$stats->skippedCount} Skipped");

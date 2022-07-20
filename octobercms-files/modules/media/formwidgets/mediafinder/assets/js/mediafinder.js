@@ -406,7 +406,7 @@
             animation: 150,
             draggable: 'div.item-object',
             handle: '.drag-handle',
-            onChange: this.proxy(this.onSortAttachments)
+            onEnd: this.proxy(this.onSortAttachments)
         });
     }
 

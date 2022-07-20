@@ -44,4 +44,4 @@ fields:
         label: Project 3 Image
         type: mediafinder
         mode: image
-        maxItems: 1
+        maxItems: 1    

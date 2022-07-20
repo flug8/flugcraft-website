@@ -22,7 +22,7 @@ class TailorRefresh extends Command
     protected $signature = 'tailor:refresh
         {--R|rollback : Rollback to the beginning.}
         {--F|force : Force the operation to run.}
-        {--handle= : Handle name to refresh one blueprint.}';
+        {--blueprint= : Handle name to refresh one blueprint.}';
 
     /**
      * @var string description of the console command
@@ -45,7 +45,7 @@ class TailorRefresh extends Command
             return;
         }
 
-        if ($handle = $this->option('handle')) {
+        if ($handle = $this->option('blueprint')) {
             return $this->handleForBlueprint($handle);
         }
 
@@ -141,7 +141,12 @@ class TailorRefresh extends Command
             return false;
         }
 
-        if (!$this->confirm("This will DESTROY all content records for Tailor.")) {
+        $message = "This will DESTROY all content records for Tailor.";
+        if ($handle = $this->option('blueprint')) {
+            $message = "This will DESTROY content records for the [{$handle}] handle.";
+        }
+
+        if (!$this->confirm($message)) {
             return true;
         }
 

@@ -14,15 +14,11 @@
     z-index: 25;
 
     & .homemain2 {
-        background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/storage/app/media/home/1.jpeg");
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center center;
         display: flex;
         justify-content: center;
         align-items: center;
         width: 100%;
-        height: 100%;
+        height: 100vh;
         transition: none;
         & #typeithome{
             margin: 0 50px;
@@ -40,9 +36,8 @@
 
 
 .home2 {
-    padding: 35px 0 70px 0;
-    margin-top: -35px;
-    background-color: $color3;
+    padding-bottom: 70px;
+    background-color: $color1;
     text-align: center;
     z-index: 24;
     border-radius: 0 0 35px 35px;
@@ -65,6 +60,187 @@
             }
 
             
+        }
+    }
+}
+
+
+.home3 {
+    padding: 70px 0;
+    background-color: $color3;
+    text-align: center;
+    z-index: 24;
+    border-radius: 35px;
+    color: $color2;
+    & .home3elements, .home3elementsmobile {
+        margin: 0 25px;
+        & .uk-card {
+            text-align: center;
+            padding: 0;
+            background-color: $color1;
+            border-radius: 35px;
+            margin: 0 25px;
+
+            & .uk-card-media-top, .uk-card-media-left {
+                border-radius: 15px;
+                overflow: hidden;
+                height: 250px;
+                margin: 20px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                & img {
+                    flex-shrink: 0;
+                    min-width: 100%;
+                    min-height: 100%;
+                }
+            }
+
+            & .uk-card-header {
+                padding: 0 20px;
+            }
+
+            & .uk-card-body {
+                padding: 20px 20px 0 20px;
+                & .details {
+                    display: flex;
+                    justify-content: space-around;
+                    align-items: center;
+                    margin-top: 20px;
+                }
+            }
+
+            & .uk-card-footer {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 20px;
+                & div {
+                    min-width: 31px;
+                }
+
+                & .starrating {
+                    --percent: calc(var(--rating) / 5 * 100%);
+                    display: inline-block;
+                    font-family: Times; // make sure ★ appears correctly
+                    line-height: 1;
+                    font-size: 160%;
+                    
+                    &::before {
+                      content: '★★★★★';
+                      letter-spacing: 3px;
+                      background: linear-gradient(90deg, $color5 var(--percent), $color3 var(--percent));
+                      -webkit-background-clip: text;
+                      background-clip: text;
+                      -webkit-text-fill-color: transparent;
+                    }
+                }
+                & svg {
+                    width: 25px;
+                    height: 25px;
+                    border: 1px solid $color2;
+                    padding: 2px;
+                    border-radius: 20px;
+            
+                    & g {
+                        fill: $color2;
+                    }
+                }
+            }
+            &:hover {
+
+                & .uk-card-footer svg {
+                    background-color: $color2;
+        
+                    & g {
+                        fill: $color3;
+                    }
+                }
+                
+            }
+        }
+    }
+}
+
+.home4 {
+    & .home4elements {
+        padding: 70px 50px;
+        & .home4element1 {
+            overflow: hidden;
+            display: flex;
+            justify-content: flex-end;
+            padding: 0 25px;
+            & div {
+                max-width: 400px;
+                max-height: 400px;
+                //aspect-ratio: 1 / 1;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 35px;
+                overflow: hidden;
+                & img {
+                    min-width: 100%;
+                    height: 100%;
+                    flex-shrink: 0;
+                }
+            }
+        }
+        & .home4element2 {
+            padding: 0px 25px;
+            display: flex;
+            justify-content: space-around;
+            flex-direction: column;
+
+            & h2 {
+                margin: 0 0 0 -75px ;
+            }
+
+            & span {
+                max-width: 400px;
+            }
+
+            & .btn2:hover {
+                background-color: $color4;
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 430px){
+    #typeithome {
+        font-size: 48px;
+    }
+}
+
+@media (max-width: 639px){
+    .home4 .home4elements {
+        margin-left: 0;
+        & .home4element1 {
+            justify-content: center;
+        }
+        & .home4element2{
+            align-items: center;
+            text-align: center;
+            & h2 {
+                margin: auto;
+            }
+            & h2, span, button {
+                padding-top: 10px;
+                padding-bottom: 10px;
+                text-align: center;
+            }
         }
     }
 }

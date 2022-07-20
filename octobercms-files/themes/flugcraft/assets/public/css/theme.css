@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @font-face {
   font-family: NeueMontreal-Regular;
   src: url("fonts/NeueMontreal-Regular.otf");
@@ -1477,6 +1478,11 @@ h3 {
   font-size: 24px;
 }
 
+h4 {
+  font-size: 14px;
+  font-family: NeueMontreal-Medium, Arial;
+}
+
 .header {
   background-color: #f3f1ee;
   padding: 0px 0px;
@@ -1964,24 +1970,25 @@ h3 {
   display: flex;
   justify-content: space-between;
   padding: 0 20px 0 30px;
+  cursor: pointer;
 }
 .btna .fiverricon {
   display: none;
 }
 
 @media (max-width: 800px) {
-  .btna {
+  .btn1 {
     width: 50px;
     height: 50px;
     padding: 15px;
   }
-  .btna p, .btna .arrowMOF {
+  .btn1 p, .btn1 .arrowMOF {
     display: none;
   }
-  .btna .fiverricon {
+  .btn1 .fiverricon {
     display: block;
   }
-  .btna .fiverricon .b {
+  .btn1 .fiverricon .b {
     fill: #f3f1ee;
   }
 }
@@ -2090,15 +2097,11 @@ h3 {
   z-index: 25;
 }
 .homemain .homemain2 {
-  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/storage/app/media/home/1.jpeg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   transition: none;
 }
 .homemain .homemain2 #typeithome {
@@ -2113,9 +2116,8 @@ h3 {
 }
 
 .home2 {
-  padding: 35px 0 70px 0;
-  margin-top: -35px;
-  background-color: #e7e5e2;
+  padding-bottom: 70px;
+  background-color: #f3f1ee;
   text-align: center;
   z-index: 24;
   border-radius: 0 0 35px 35px;
@@ -2137,6 +2139,177 @@ h3 {
 }
 .home2 .home2elements .uk-card svg g {
   fill: #0d3937;
+}
+
+.home3 {
+  padding: 70px 0;
+  background-color: #e7e5e2;
+  text-align: center;
+  z-index: 24;
+  border-radius: 35px;
+  color: #0d3937;
+}
+.home3 .home3elements, .home3 .home3elementsmobile {
+  margin: 0 25px;
+}
+.home3 .home3elements .uk-card, .home3 .home3elementsmobile .uk-card {
+  text-align: center;
+  padding: 0;
+  background-color: #f3f1ee;
+  border-radius: 35px;
+  margin: 0 25px;
+}
+.home3 .home3elements .uk-card .uk-card-media-top, .home3 .home3elements .uk-card .uk-card-media-left, .home3 .home3elementsmobile .uk-card .uk-card-media-top, .home3 .home3elementsmobile .uk-card .uk-card-media-left {
+  border-radius: 15px;
+  overflow: hidden;
+  height: 250px;
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.home3 .home3elements .uk-card .uk-card-media-top img, .home3 .home3elements .uk-card .uk-card-media-left img, .home3 .home3elementsmobile .uk-card .uk-card-media-top img, .home3 .home3elementsmobile .uk-card .uk-card-media-left img {
+  flex-shrink: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
+.home3 .home3elements .uk-card .uk-card-header, .home3 .home3elementsmobile .uk-card .uk-card-header {
+  padding: 0 20px;
+}
+.home3 .home3elements .uk-card .uk-card-body, .home3 .home3elementsmobile .uk-card .uk-card-body {
+  padding: 20px 20px 0 20px;
+}
+.home3 .home3elements .uk-card .uk-card-body .details, .home3 .home3elementsmobile .uk-card .uk-card-body .details {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 20px;
+}
+.home3 .home3elements .uk-card .uk-card-footer, .home3 .home3elementsmobile .uk-card .uk-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+.home3 .home3elements .uk-card .uk-card-footer div, .home3 .home3elementsmobile .uk-card .uk-card-footer div {
+  min-width: 31px;
+}
+.home3 .home3elements .uk-card .uk-card-footer .starrating, .home3 .home3elementsmobile .uk-card .uk-card-footer .starrating {
+  --percent: calc(var(--rating) / 5 * 100%);
+  display: inline-block;
+  font-family: Times;
+  line-height: 1;
+  font-size: 160%;
+}
+.home3 .home3elements .uk-card .uk-card-footer .starrating::before, .home3 .home3elementsmobile .uk-card .uk-card-footer .starrating::before {
+  content: "\2605\2605\2605\2605\2605";
+  letter-spacing: 3px;
+  background: linear-gradient(90deg, #ECC97A var(--percent), #e7e5e2 var(--percent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.home3 .home3elements .uk-card .uk-card-footer svg, .home3 .home3elementsmobile .uk-card .uk-card-footer svg {
+  width: 25px;
+  height: 25px;
+  border: 1px solid #0d3937;
+  padding: 2px;
+  border-radius: 20px;
+}
+.home3 .home3elements .uk-card .uk-card-footer svg g, .home3 .home3elementsmobile .uk-card .uk-card-footer svg g {
+  fill: #0d3937;
+}
+.home3 .home3elements .uk-card:hover .uk-card-footer svg, .home3 .home3elementsmobile .uk-card:hover .uk-card-footer svg {
+  background-color: #0d3937;
+}
+.home3 .home3elements .uk-card:hover .uk-card-footer svg g, .home3 .home3elementsmobile .uk-card:hover .uk-card-footer svg g {
+  fill: #e7e5e2;
+}
+
+.home4 .home4elements {
+  padding: 70px 50px;
+}
+.home4 .home4elements .home4element1 {
+  overflow: hidden;
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 25px;
+}
+.home4 .home4elements .home4element1 div {
+  max-width: 400px;
+  max-height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 35px;
+  overflow: hidden;
+}
+.home4 .home4elements .home4element1 div img {
+  min-width: 100%;
+  height: 100%;
+  flex-shrink: 0;
+}
+.home4 .home4elements .home4element2 {
+  padding: 0px 25px;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+}
+.home4 .home4elements .home4element2 h2 {
+  margin: 0 0 0 -75px;
+}
+.home4 .home4elements .home4element2 span {
+  max-width: 400px;
+}
+.home4 .home4elements .home4element2 .btn2:hover {
+  background-color: #000;
+}
+
+@media (max-width: 430px) {
+  #typeithome {
+    font-size: 48px;
+  }
+}
+@media (max-width: 639px) {
+  .home4 .home4elements {
+    margin-left: 0;
+  }
+  .home4 .home4elements .home4element1 {
+    justify-content: center;
+  }
+  .home4 .home4elements .home4element2 {
+    align-items: center;
+    text-align: center;
+  }
+  .home4 .home4elements .home4element2 h2 {
+    margin: auto;
+  }
+  .home4 .home4elements .home4element2 h2, .home4 .home4elements .home4element2 span, .home4 .home4elements .home4element2 button {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+  }
+}
+.contact {
+  background-color: #e7e5e2;
+  margin-bottom: -35px;
+  height: 1000px;
+  border-radius: 0 0 35px 35px;
+  padding: 70px 50px;
+  color: #0d3937;
+}
+.contact .uk-grid {
+  height: 20px;
+  padding-top: 70px;
+}
+.contact .uk-grid .form-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.contact .uk-grid .form-placeholder .form {
+  width: 50vw;
+  background-color: #ECC97A;
 }
 
 * {
