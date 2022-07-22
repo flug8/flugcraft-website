@@ -1,4 +1,5 @@
 
+
 // VARIABLES
 
 const isTouchDevice = () => {  
@@ -15,6 +16,9 @@ var burgeractive = false;
 var fiverractive = false;
 
 var headerwhite = true;
+
+var galleryRows = 2;
+var gallerySpaceW = 30;
 
 
 // FUNCTIONS
@@ -41,6 +45,17 @@ function fixwidth(){
         hideProductNavigationMenu();
         productinactive = true;
         setTimeout(mouseOnHeaderStatus, 10, moh);
+    }
+    if(w <= 600 ) {
+        galleryRows = 2;
+        gallerySpaceW = 10;
+        document.body.style.setProperty("--gallery-rows", 2);
+        document.body.style.setProperty("--gallery-space-w", "10px");
+    }else{
+        galleryRows = 4;
+        gallerySpaceW = 30;
+        document.body.style.setProperty("--gallery-rows", 4);
+        document.body.style.setProperty("--gallery-space-w", "30px");
     }
 }
 
@@ -456,6 +471,17 @@ window.addEventListener("scroll", headerBackgroundColor);
 window.addEventListener("resize", fixwidth);
 window.addEventListener("scroll", toggleHeader);
 window.addEventListener("scroll", hideAll);
+window.addEventListener("resize", function () {
+    galleryHeight();
+    const h = document.querySelectorAll(".mgridH");
+    for (let i = 0; i < h.length ; i++) {
+        h[i].style.height = ( ( document.querySelector(".mgrid").clientWidth / galleryRows - gallerySpaceW / galleryRows) * 2 + 10 ) + "px";
+    }
+    const w = document.querySelectorAll(".mgridW");
+    for (let i = 0; i < w.length ; i++) {
+        w[i].style.width = ( ( document.querySelector(".mgrid").clientWidth / galleryRows - gallerySpaceW / galleryRows) * 2 + 10 ) + "px";
+    }
+})
 
 
 
@@ -480,11 +506,20 @@ document.addEventListener('DOMContentLoaded', function(event) {
     }else if(window.location.pathname == "/contact"){
         document.querySelector("textarea").setAttribute("oninput","textareaAutoGrow(this)");
         document.querySelector("textarea").setAttribute("rows","2");
+    }else if(window.location.pathname == "/gallery"){
+        fixwidth();
+        randomizeChildren("mgrid")
+        galleryHeight();
+        loadGallery();
+        Packery1();
+        randomGallery();
+        
     }
     
     
-    
 })
+
+function galleryHeight() {document.body.style.setProperty("--mgrid-item-width", ( document.querySelector(".mgrid").clientWidth / galleryRows - gallerySpaceW / galleryRows) + "px");};
 
 window.addEventListener("focus", function(event) {
     document.getElementById("transition").style.opacity = 0;
@@ -562,12 +597,82 @@ function toggleHeader() {
 
 
 
-function Masonry1 () {
-var elem = document.querySelector('.mgrid');
-var msnry = new Masonry( elem, {
-  // options
-  itemSelector: '.mgrid-item',
-  percentPosition: true,
-  gutter: 10,
+function Packery1 () {
+    var elem = document.querySelector('.mgrid');
+    var msnry = new Packery( elem, {
+      // options
+      itemSelector: '.mgrid-item',
+      percentPosition: true,
+      gutter: 10,
+    });
+    }
+
+
+const randomizeChildren = ((d) => {
+    const e = document.querySelector("." + d);
+    const n = e.cloneNode(true);
+    const c = n.children;
+    const f = document.createDocumentFragment();
+
+    while (c.length > 0) {
+        f.appendChild( c [Math.floor(Math.random() * c.length)] );
+    };
+
+    e.innerHTML = "";
+    e.appendChild(f);
 });
+
+
+function loadGallery () {
+    var img = document.querySelectorAll('.mgrid-item img'), i;
+
+    for (i = 0; i < img.length; ++i) {
+        console.log(i);
+        var data = img[i].getAttribute("data-src");
+        img[i].setAttribute("src" , data);
+    }
 }
+
+
+
+
+function randomGalleryW (a) {
+    for (let i = 0; i < a; i++){
+        const e = document.querySelectorAll(".mgrida");
+        let num = generateRandomInteger(e.length - 5);
+        console.log(a);
+        e[num].style.width = ( e[num].clientWidth * 2 + 10 ) + "px";
+        e[num].classList.remove("mgrida");
+        e[num].classList.add("mgridW");
+        Packery1();
+    }
+}
+
+function randomGalleryH (a) {
+    for (let i = 0; i < a; i++){
+        const e = document.querySelectorAll(".mgrida");
+        let num = generateRandomInteger(e.length - 5);
+        console.log(a);
+        e[num].style.height = ( e[num].clientHeight * 2 + 10 ) + "px";
+        e[num].classList.remove("mgrida");
+        e[num].classList.add("mgridH");
+        Packery1();
+    }
+}
+
+
+function randomGallery () {
+    const e = document.querySelectorAll(".mgrid-item");
+    var a = ( ( e.length / 2.3 ) - ( ( e.length / 2.3 )% 4) ) - ( e.length % 4);
+    console.log( ( a - ( a % 2 ) ) / 2 );
+    randomGalleryH( ( a - ( a % 2 ) ) / 2 );
+    randomGalleryW( ( a + ( a % 2 ) ) / 2 );
+    console.log(a);
+
+}
+
+function generateRandomInteger(max) {
+    return Math.floor(Math.random() * max) + 1;
+}
+
+

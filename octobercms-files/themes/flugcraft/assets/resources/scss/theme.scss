@@ -3,7 +3,7 @@
 // =================================================
 
 // Base
-@import "variables";
+@import "variables";    //use
 /*@import "mixin";
 @import "base";
 
@@ -17,17 +17,17 @@
 @import "components/icon";
 @import "components/form-range";
 @import "components/form";
-@import "components/button";
+//@import "components/button";
 
 // Layout
 @import "components/section";
-@import "components/container";
-*/@import "components/grid";/*
-@import "components/tile";
-*/@import "components/card";/*
+@import "components/container";*/
+@import "components/grid";  //use
+//@import "components/tile";
+@import "components/card";  //use
 
 // Common
-@import "components/close";
+/*@import "components/close";
 @import "components/spinner";
 @import "components/totop";
 @import "components/marker";
@@ -55,7 +55,7 @@
 @import "components/drop";
 @import "components/dropdown";
 @import "components/modal";
-@import "components/lightbox";
+@import "components/lightbox";  //use
 @import "components/slideshow";
 @import "components/slider";
 @import "components/sticky";
@@ -70,13 +70,13 @@
 @import "components/placeholder";
 @import "components/progress";
 @import "components/sortable";
-@import "components/countdown";
+@import "components/countdown";*/
 
 // Utilities
-@import "components/animation";
-*/@import "components/width";
-@import "components/height";/*
-@import "components/text";
+@import "components/animation";  //use
+@import "components/width";     //use
+@import "components/height";  //use
+/*@import "components/text";
 @import "components/column";
 @import "components/cover";
 @import "components/background";
@@ -87,9 +87,9 @@
 @import "components/margin";
 @import "components/padding";
 @import "components/position";
-@import "components/transition";
-*/@import "components/visibility";/*
-@import "components/inverse";
+@import "components/transition";*/
+@import "components/visibility";    //use
+/*@import "components/inverse";*/
 
 // =================================================
 // Custom
@@ -99,7 +99,7 @@
 
 // Need to be loaded last
 @import "components/print";
-*/
+
 
 @import "-text";
 @import "-header";

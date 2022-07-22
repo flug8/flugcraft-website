@@ -32,6 +32,9 @@ div {       // for footer to work including interactive elements
 body {
     background-color: $color2;
     //height: 100vh;
+    --mgrid-item-width: 0px;
+    --gallery-rows: 4;
+    --gallery-space-w: 30px;
 }
 
 .transition {

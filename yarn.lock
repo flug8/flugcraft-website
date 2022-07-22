@@ -24,6 +24,11 @@ get-size@^2.0.2:
   resolved "https://registry.npmjs.org/get-size/-/get-size-2.0.3.tgz"
   integrity sha512-lXNzT/h/dTjTxRbm9BXb+SGxxzkm97h/PCIKtlN/CBCxxmkkIVV21udumMS93MuVTDX583gqc94v3RjuHmI+2Q==
 
+lightgallery@^2.5.0:
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/lightgallery/-/lightgallery-2.5.0.tgz#9ab94dd3ebbc0a5cf830901aaafeaa75132cf54b"
+  integrity sha512-pzg5gwflLGlKaK1VqDKpb7yqQ/WSV/TxFaHRR7ld7G5iOI9gkJZ2qKKo2lyqvTvu8yAqNYXoU0w9O/Dll6POkw==
+
 masonry-layout@^4.2.2:
   version "4.2.2"
   resolved "https://registry.yarnpkg.com/masonry-layout/-/masonry-layout-4.2.2.tgz#d57b44af13e601bfcdc423f1dd8348b5524de348"

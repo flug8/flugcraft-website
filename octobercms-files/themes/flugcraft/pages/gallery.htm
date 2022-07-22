@@ -3,24 +3,21 @@ url = "/gallery"
 layout = "default"
 is_hidden = 0
 
-[global links]
-handle = "Fields\SocialLinks"
-==
-function onStart() {
-}
 
-
+[collection products]
+handle = "Flugcraft\Products"
 ==
 
 
 <div class="gallery">
     <h1>Gallery</h1>
     <div class="mgrid">
-        {% set test = shuffled %}
-        {% for i in test %}
-        <div class="mgrid-item">
-            {{i}}
-        </div>
+        {% for product in products %}
+        {% for image in product.images %}
+        <a href="{{image | media}}" class="mgrid-item mgrida"> 
+            <img loading="lazy" data-src="{{ image | media | resize(750)}}" alt="">
+        </a>
+        {% endfor %}
         {% endfor %}
     </div>
 </div>

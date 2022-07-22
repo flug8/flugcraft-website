@@ -4214,6 +4214,11 @@ lcid@^2.0.0:
   dependencies:
     invert-kv "^2.0.0"
 
+lightgallery@^2.5.0:
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/lightgallery/-/lightgallery-2.5.0.tgz#9ab94dd3ebbc0a5cf830901aaafeaa75132cf54b"
+  integrity sha512-pzg5gwflLGlKaK1VqDKpb7yqQ/WSV/TxFaHRR7ld7G5iOI9gkJZ2qKKo2lyqvTvu8yAqNYXoU0w9O/Dll6POkw==
+
 loader-runner@^2.4.0:
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/loader-runner/-/loader-runner-2.4.0.tgz#ed47066bfe534d7e84c4c7b9998c2a75607d9357"

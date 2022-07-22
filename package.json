@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "lightgallery": "^2.5.0",
     "masonry-layout": "^4.2.2"
   }
 }

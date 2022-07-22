@@ -3,19 +3,27 @@
 .mgrid {
     position: relative;
 
-    background-color: #ddd;
     width: auto;
     margin: 50px;
+    transition: none;
 }
-
 .mgrid-item {
+    transition: none;
     display: block;
     position: absolute;
     z-index: 1000;
-    height: 100px;
-    background-color: #fb0;
-    margin-bottom: 10px;
-    width: calc( 25% - 40px / 4 );
+    height: var(--mgrid-item-width);
+    background-color: $color3;
+    //margin-left: 20px;
+    width: calc( 100% / var(--gallery-rows) - var(--gallery-space-w) / var(--gallery-rows) );
+    overflow: hidden;
+    border-radius: 35px;
+    & img {
+        transition: .5s;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }   
 }
 
 .mgrid .width2 {
@@ -24,4 +32,13 @@
 
 .mgrid .height2 {
     height: 210px;
+}
+
+
+.uk-transition-active img {
+    transition: .5s;
+}
+
+.slbElement {
+    z-index: 20;
 }
