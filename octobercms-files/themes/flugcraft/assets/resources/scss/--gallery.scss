@@ -1,0 +1,27 @@
+
+
+.mgrid {
+    position: relative;
+
+    background-color: #ddd;
+    width: auto;
+    margin: 50px;
+}
+
+.mgrid-item {
+    display: block;
+    position: absolute;
+    z-index: 1000;
+    height: 100px;
+    background-color: #fb0;
+    margin-bottom: 10px;
+    width: calc( 25% - 40px / 4 );
+}
+
+.mgrid .width2 {
+    width: calc( (25% - 40px / 4 ) * 2 + 10px );
+}
+
+.mgrid .height2 {
+    height: 210px;
+}

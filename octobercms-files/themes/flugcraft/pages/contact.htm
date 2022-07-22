@@ -2,19 +2,35 @@ title = "Contact"
 url = "/contact"
 layout = "default"
 is_hidden = 0
+
+[contactForm]
+
+[global contact]
+handle = "Flugcraft\Contact"
 ==
 <div class="contact">
     <h1>Let's start a project together</h1>
     <div class="uk-grid" uk-grid>
-        <div class="uk-width-2-3@s form-placeholder">
+        <div class="uk-width-2-3@m form-placeholder">
             <div class="form">
-                <div class="questionelement">
-                    
-                </div>
+                {%  component 'contactForm' %}
             </div>
         </div>
-        <div class="uk-width-expand@s">
-            2
+        <div class="uk-width-expand@m contact-placeholder">
+            <div class="contact-details">
+                <h3>Contact Details</h3>
+                {% for contact_detail in contact.contact_details %}
+                <li><a href="{{contact_detail.url}}">{{contact_detail.title}} <div></div> </a></li>
+                {% endfor %}
+            </div>
+            <div class="social-media">
+                <h3>Social Media</h3>
+                {% for social_link in contact.social_links %}
+                <a href="{{social_link.url2}}">
+                    <img src="https://img.icons8.com/material-rounded/100/0d3937/{{social_link.icon}}.png"/>
+                </a>
+                {% endfor %}
+            </div>
         </div>
     </div>
 </div>

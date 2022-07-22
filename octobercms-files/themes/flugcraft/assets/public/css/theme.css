@@ -1579,7 +1579,7 @@ h4 {
 
 .bgMOF {
   position: fixed;
-  height: 100%;
+  height: 200vh;
   width: 100%;
   background-color: #000;
   opacity: 0;
@@ -2091,7 +2091,7 @@ h4 {
   position: relative;
   margin-top: -120px;
   width: 100%;
-  height: calc(100vh + 75px);
+  height: calc(110vh + 75px);
   overflow: hidden;
   border-radius: 0px 0px 35px 35px;
   z-index: 25;
@@ -2101,10 +2101,12 @@ h4 {
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 100vh;
+  height: 110vh;
   transition: none;
 }
 .homemain .homemain2 #typeithome {
+  transition: none;
+  height: 50vh;
   margin: 0 50px;
   width: 100%;
   color: #f3f1ee;
@@ -2265,9 +2267,15 @@ h4 {
   background-color: #000;
 }
 
-@media (max-width: 430px) {
+@media (max-width: 480px) {
   #typeithome {
     font-size: 48px;
+  }
+  .homemain {
+    height: calc(135vh + 75px);
+  }
+  .homemain .homemain2 {
+    height: 135vh;
   }
 }
 @media (max-width: 639px) {
@@ -2293,13 +2301,11 @@ h4 {
 .contact {
   background-color: #e7e5e2;
   margin-bottom: -35px;
-  height: 1000px;
   border-radius: 0 0 35px 35px;
   padding: 70px 50px;
   color: #0d3937;
 }
 .contact .uk-grid {
-  height: 20px;
   padding-top: 70px;
 }
 .contact .uk-grid .form-placeholder {
@@ -2309,7 +2315,119 @@ h4 {
 }
 .contact .uk-grid .form-placeholder .form {
   width: 50vw;
-  background-color: #ECC97A;
+}
+.contact .uk-grid .form-placeholder .form #scf-contactForm #scf-form-contactForm form .form-group {
+  padding: 20px 0;
+  margin-top: -1px;
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid #0d3937;
+  border-bottom: 1px solid #0d3937;
+}
+.contact .uk-grid .form-placeholder .form #scf-contactForm #scf-form-contactForm form .form-group label {
+  padding-bottom: 10px;
+  font-size: 24px;
+}
+.contact .uk-grid .form-placeholder .form #scf-contactForm #scf-form-contactForm form .form-group input, .contact .uk-grid .form-placeholder .form #scf-contactForm #scf-form-contactForm form .form-group textarea {
+  border: none;
+  background-color: transparent;
+  font-size: 24px;
+  color: #0d3937;
+  resize: none;
+  min-height: 50px;
+  max-height: 300px;
+}
+.contact .uk-grid .form-placeholder .form #scf-contactForm #scf-form-contactForm form .form-group input:focus, .contact .uk-grid .form-placeholder .form #scf-contactForm #scf-form-contactForm form .form-group textarea:focus {
+  border: none;
+  outline: none;
+}
+.contact .uk-grid .form-placeholder .form #scf-contactForm #scf-form-contactForm form .has-error {
+  border-right: 3px solid #f00;
+}
+.contact .uk-grid .form-placeholder .form #scf-contactForm #scf-form-contactForm form #submit-wrapper-contactForm {
+  border-bottom: none;
+  display: flex;
+  align-items: flex-end;
+}
+.contact .uk-grid .form-placeholder .form #scf-contactForm #scf-form-contactForm form #submit-wrapper-contactForm button svg path {
+  stroke: #e7e5e2;
+}
+.contact .uk-grid .form-placeholder .form #scf-contactForm #scf-form-contactForm form #submit-wrapper-contactForm button p {
+  color: #e7e5e2;
+}
+.contact .uk-grid .contact-placeholder .contact-details {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 20px;
+}
+.contact .uk-grid .contact-placeholder .contact-details h3 {
+  padding-bottom: 10px;
+}
+.contact .uk-grid .contact-placeholder .contact-details li {
+  padding: 5px 0;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+.contact .uk-grid .contact-placeholder .contact-details li a {
+  text-decoration: none;
+  list-style: none;
+  color: #0d3937;
+  font-size: 18px;
+}
+.contact .uk-grid .contact-placeholder .contact-details li a div {
+  height: 1px;
+  width: 0%;
+  background-color: #0d3937;
+}
+.contact .uk-grid .contact-placeholder .contact-details li:hover a div {
+  width: 100%;
+}
+.contact .uk-grid .contact-placeholder .social-media {
+  padding-bottom: 50px;
+}
+.contact .uk-grid .contact-placeholder .social-media h3 {
+  padding-bottom: 10px;
+}
+.contact .uk-grid .contact-placeholder .social-media a {
+  text-decoration: none;
+}
+.contact .uk-grid .contact-placeholder .social-media a img {
+  height: 50px;
+  width: 50px;
+}
+
+@media (max-width: 959px) {
+  .contact .uk-grid .form-placeholder {
+    order: 2;
+  }
+  .contact .uk-grid .form-placeholder .form {
+    width: 100%;
+  }
+}
+.mgrid {
+  position: relative;
+  background-color: #ddd;
+  width: auto;
+  margin: 50px;
+}
+
+.mgrid-item {
+  display: block;
+  position: absolute;
+  z-index: 1000;
+  height: 100px;
+  background-color: #fb0;
+  margin-bottom: 10px;
+  width: calc(25% - 10px);
+}
+
+.mgrid .width2 {
+  width: calc((25% - 10px) * 2 + 10px);
+}
+
+.mgrid .height2 {
+  height: 210px;
 }
 
 * {
@@ -2340,12 +2458,11 @@ div {
 
 body {
   background-color: #0d3937;
-  height: 100vh;
 }
 
 .transition {
   position: fixed;
-  height: calc(100% + 120px);
+  height: calc(200vh + 120px);
   width: 100%;
   z-index: 1000;
   display: flex;
@@ -2364,6 +2481,11 @@ body {
   opacity: 0;
 }
 
+@media (max-width: 480px) {
+  :root {
+    zoom: 0.8;
+  }
+}
 @media (max-width: 960px) {
   .mainpage {
     margin-top: 80px;

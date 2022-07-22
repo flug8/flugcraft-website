@@ -306,7 +306,7 @@ function showBurgerNavigationMenu() {
         document.getElementById("arrowMOFPath").style.stroke = c;
         document.getElementById("fiverrMOFPath").style.fill = c;
         document.getElementById("fiverrMOFCircle").style.fill = c;*/
-        document.getElementById("burgerpopup").style.height = "100vh";
+        document.getElementById("burgerpopup").style.height = "200vh";
         /*document.getElementById("header-wrapper").style.borderBottomColor = c2;
         document.getElementById("btna").style.backgroundColor = c2;
         document.getElementById("btnatxt").style.color = c;*/
@@ -338,7 +338,7 @@ function showBurgerNavigationMenu() {
 
 function hideBurgerNavigationMenu() {
     const check = document.getElementById("burgerpopup").style.height 
-    if(check == "100vh"){
+    if(check == "200vh"){
         /*const c = window.getComputedStyle( document.body , null).getPropertyValue("background-color");
         const c2 = window.getComputedStyle( document.getElementById("whitecolor") , null).getPropertyValue("color");
         //document.getElementById("arrowMOF").style.transform = "rotate(0deg)";
@@ -424,6 +424,22 @@ function headerBackgroundColor (u = 0) {
 
 
 
+function textareaAutoGrow(element){
+    element.style.height = "auto";
+    element.style.height = (element.scrollHeight) + "px";
+    console.log(element.scrollHeight);
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -457,9 +473,16 @@ window.transitionToPage = function(href) {
 document.addEventListener('DOMContentLoaded', function(event) {
     document.getElementById("transition").style.opacity = 0;
     document.getElementById("transition").style.pointerEvents = "none";
-    headerBackgroundColor(1);
-    typeIt1();
     window.scrollTo(0,0);
+    headerBackgroundColor(1);
+    if(window.location.pathname == "/"){
+        typeIt1();
+    }else if(window.location.pathname == "/contact"){
+        document.querySelector("textarea").setAttribute("oninput","textareaAutoGrow(this)");
+        document.querySelector("textarea").setAttribute("rows","2");
+    }
+    
+    
     
 })
 
@@ -506,6 +529,7 @@ function typeIt1 () {
 
 
 document.addEventListener("scroll", function(e) {
+    if(window.location.pathname == '/'){
     var h = document.querySelector(".homemain").clientHeight;
     var y = window.scrollY;
     if(y >= h){
@@ -513,9 +537,10 @@ document.addEventListener("scroll", function(e) {
     }
     document.querySelector(".homemain2").style.display = "auto";
     document.querySelector(".homemain2").style.transform = "translateY(" + ( ( y + y / h *120 ) / 2 ) + "px)";
-    document.querySelector("#typeithome").style.zoom = ( h - y / 3) / h;
-    document.querySelector("#typeithome").style.opacity = ( ( h - 120 ) - y ) / h;
-
+    //document.querySelector("#typeithome").style.zoom = ( h - y / 3) / h;
+    document.querySelector("#typeithome").style.transform = "translateY(" + ( ( y + y / h *120 ) / 3 ) + "px)";
+    document.querySelector("#typeithome").style.opacity = ( ( h - 120 ) - y * 1.2 ) / h;
+    }
     
 });
 
@@ -531,4 +556,18 @@ function toggleHeader() {
     }
 
     pScrollPos = cScrollPos;
+}
+
+
+
+
+
+function Masonry1 () {
+var elem = document.querySelector('.mgrid');
+var msnry = new Masonry( elem, {
+  // options
+  itemSelector: '.mgrid-item',
+  percentPosition: true,
+  gutter: 10,
+});
 }

@@ -8,9 +8,27 @@ navigation:
     parent: Flugcraft\About
     
 fields:
-    form_input:
-        label: Form Input
+    contact_details:
+        label: Contact Details
         type: repeater
         form:
             fields:
+                title:
+                    label: Title
+                    type: text
+                url:
+                    label: URL
+                    type: text
+    social_links:
+        label: Social Links
+        type: repeater
+        form:
+            fields:
+                icon:
+                    label: Icon Label (more on icons8.com)
+                    type: text
+                url2:
+                    label: URL
+                    type: text
+
 

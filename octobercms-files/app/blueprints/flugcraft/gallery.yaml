@@ -9,8 +9,12 @@ navigation:
     order: 201
 
 fields:
-    metrics:
-        label: Metrics
+    elements:
+        label: Elements
         type: repeater
         form:
             fields:
+                image:
+                    type: mediafinder
+                    label: Image
+                    
