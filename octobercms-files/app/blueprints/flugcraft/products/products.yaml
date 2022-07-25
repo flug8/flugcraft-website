@@ -24,9 +24,9 @@ fields:
         type: textarea
         size: small
     description:
-        label: Description
-        type: textarea
-        size: large
+        type: richeditor
+        toolbarButtons: fullscreen, bold, italic, underline, strikeThrough, subscript, superscript, fontFamily, fontSize, |, color, emoticons, inlineStyle, paragraphStyle, |, paragraphFormat, align, formatOL, formatUL, outdent, indent, quote, insertHR, -, insertLink, insertImage, insertVideo, insertAudio, insertFile, insertTable, undo, redo, clearFormatting, selectAll, html
+        size: huge
     price:
         label: starting at Price
         type: number
@@ -64,10 +64,6 @@ fields:
     rating_amount:
         label: Amount of Ratings
         type: number
-    ratings:
-        type: mixin
-        source: Flugcraft\Ratings
-        tab: General
     images:
         type: mediafinder
         label: Images
@@ -79,5 +75,33 @@ fields:
     link:
         label: Fiverr Product Link
         type: text
-        
+    reviews:
+        label: Reviews
+        type: repeater
+        form:
+            fields:
+                username:
+                    label: Username
+                    type: text
+                    span: row
+                    spanClass: col-md-9
+                date:
+                    label: Date
+                    type: datepicker
+                    mode: date
+                    format: Y/m/d
+                    span: row
+                    spanClass: col-md-3
+                rating:
+                    label: Rating 1-5
+                    type: number
+                    span: row
+                    spanClass: col-md-2
+                text:
+                    label: Text
+                    type: text
+                    span: row
+                    spanClass: col-md-10
+                
+            
 

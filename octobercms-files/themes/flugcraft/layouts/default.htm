@@ -10,6 +10,8 @@
         <link rel="icon" type="image/png" href="{{ 'assets/public/images/logo.png'|theme }}">
         <link rel="stylesheet" href="{{ mix('/public/css/theme.css') }}">
         <link rel="stylesheet" href="{{ 'assets/public/css/sl.min.css' | theme }}">
+        <link type="text/css" rel="stylesheet" href="{{'assets/public/css/lightgallery-bundle.css' | theme}}" />
+        <link type="text/css" rel="stylesheet" href="{{'assets/public/css/lightslider.css' | theme}}" />
         {% styles %}
 
         <script src="https://cdn.jsdelivr.net/npm/muuri@0.9.5/dist/muuri.min.js"></script>
@@ -19,6 +21,7 @@
         <script type="text/javascript" src="{{ mix('/public/js/manifest.js') }}"></script>
         <script type="text/javascript" src="{{ mix('/public/js/vendor.js') }}"></script>
         <script src="https://unpkg.com/typeit@8.7.0/dist/index.umd.js"></script>
+        <script src="{{ ['@jquery'] | theme }}"></script>
 
 
     </head>
@@ -250,8 +253,37 @@
                 </div>
             </div>
         </div>
+        <script type="text/javascript" src="{{ 'assets/public/js/lightslider.min.js' | theme }}"></script>
         <script type="text/javascript" src="{{ mix('/public/js/theme.js') }}"></script>
+        <script type="text/javascript" src="{{ 'assets/public/js/lightgallery.min.js' |theme }}"></script>
+        <script type="text/javascript" src="{{ 'assets/public/js/plugins/lg-thumbnail.umd.js' |theme }}"></script>
+        <script type="text/javascript" src="{{ 'assets/public/js/plugins/lg-zoom.umd.js' |theme }}"></script>
         <script type="text/javascript" src="{{ 'assets/public/js/script.js' |theme }}"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('#lg2').lightSlider({
+                    gallery:true,
+                    item:1,
+                    loop:true,
+                    thumbItem:9,
+                    slideMargin:0,
+                    enableDrag: false,
+                    autoWidth: false,
+                    currentPagerPosition:'left',
+                    onSliderLoad: lightGallery1('lg2'),
+                    responsive : [
+                        {
+                            breakpoint: 950,
+                            settings: {
+                                thumbItem: 7,
+                                slideMove: 1
+                            }
+                        },
+                    ],
+                });
+            });
+        </script>
         {% scripts %}
+        
     </body>
 </html>

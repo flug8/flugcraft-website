@@ -11,11 +11,18 @@ handle = "Flugcraft\Products"
 
 <div class="gallery">
     <h1>Gallery</h1>
-    <div class="mgrid">
+    <div class="mgrid" id="lg">
         {% for product in products %}
         {% for image in product.images %}
-        <a href="{{image | media}}" class="mgrid-item mgrida"> 
-            <img loading="lazy" data-src="{{ image | media | resize(750)}}" alt="">
+        <a 
+            href="{{image | media}}" 
+            class="mgrid-item mgrida"
+            data-sub-html=
+                "<a href='/product/{{product.slug}}' class='m-grid-item-caption'>
+                    <h3>{{product.title}}</h3>
+                </a>"
+        > 
+            <img loading="lazy" data-src="{{ image | media | resize(750)}}">
         </a>
         {% endfor %}
         {% endfor %}

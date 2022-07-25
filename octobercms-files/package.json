@@ -43,5 +43,8 @@
         "mocha": "^6.2.0",
         "onchange": "^6.1.0",
         "sinon": "^7.4.1"
+    },
+    "dependencies": {
+        "lightgallery": "^2.5.0"
     }
 }

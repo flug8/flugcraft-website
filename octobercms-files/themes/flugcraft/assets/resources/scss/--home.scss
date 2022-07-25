@@ -122,22 +122,7 @@
                     min-width: 31px;
                 }
 
-                & .starrating {
-                    --percent: calc(var(--rating) / 5 * 100%);
-                    display: inline-block;
-                    font-family: Times; // make sure ★ appears correctly
-                    line-height: 1;
-                    font-size: 160%;
-                    
-                    &::before {
-                      content: '★★★★★';
-                      letter-spacing: 3px;
-                      background: linear-gradient(90deg, $color5 var(--percent), $color3 var(--percent));
-                      -webkit-background-clip: text;
-                      background-clip: text;
-                      -webkit-text-fill-color: transparent;
-                    }
-                }
+                
                 & svg {
                     width: 25px;
                     height: 25px;
@@ -164,6 +149,24 @@
         }
     }
 }
+
+.starrating {
+    --percent: calc(var(--rating) / 5 * 100%);
+    display: inline-block;
+    font-family: Times; // make sure ★ appears correctly
+    line-height: 1;
+    font-size: 160%;
+    
+    &::before {
+      content: '★★★★★';
+      letter-spacing: 3px;
+      background: linear-gradient(90deg, $color5 var(--percent), $color3 var(--percent));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+}
+
 
 .home4 {
     & .home4elements {

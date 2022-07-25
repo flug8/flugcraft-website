@@ -513,11 +513,21 @@ document.addEventListener('DOMContentLoaded', function(event) {
         loadGallery();
         Packery1();
         randomGallery();
+        lightGallery1('lg');
         
     }
     
     
 })
+
+function lightGallery1 (idx) {lightGallery(document.getElementById(idx), {
+    plugins: [lgZoom, lgThumbnail],
+    licenseKey: '0000-0000-000-0000',
+    speed: 500,
+    download: false,
+    counter: false,
+    // ... other settings
+});};
 
 function galleryHeight() {document.body.style.setProperty("--mgrid-item-width", ( document.querySelector(".mgrid").clientWidth / galleryRows - gallerySpaceW / galleryRows) + "px");};
 

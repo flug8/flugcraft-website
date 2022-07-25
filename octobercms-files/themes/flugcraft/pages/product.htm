@@ -1,0 +1,86 @@
+url = "/product/:slug"
+title = "Product"
+layout = "default"
+is_hidden = 0
+
+[section product]
+handle = "Flugcraft\Products"
+entrySlug = "{{ :slug }}"
+==
+
+{% if product is empty %}
+    {% do abort(404) %}
+{% endif %}
+
+<div class="product1">
+    <div class="product1img" style="background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('{{product.images[0] | media}}'); background-position: center center; background-size: cover;">
+        <div class="product1elements">
+            <h1 class="product1title">{{product.title}}</h1>
+            <div class="product1info">
+                <div class="starrating" style="--rating: {{product.rating}}"></div>
+                <button class="btna btn2" onclick="hideAll(); transitionToPage('https://fiverr.com/flugcraft')">
+                    <p id="btnatxt">Get it on Fiverr</p>
+                    <svg id="arrowMOF" class="arrowMOF" width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path id="arrowMOFPath" d="M8.5 5L15.5 12L8.5 19" stroke="#130F26" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="product2">
+    <div class="product2left">
+        <div class="p2left1">
+            <p>{{product.slogan}}</p>
+        </div>
+        <div class="p2left2">
+            <ul id="lg2">
+                {% for image in product.images %}
+                <li data-thumb="{{ image | media | resize(750)}}" data-src="{{ image | media}}">
+                    <div class="p2left2imgwrapper">
+                        <img src="{{image | media}}" />
+                    </div>
+                    
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="p2left3">
+            {{product.description |raw}}
+        </div>
+    </div>
+    <div class="product2right">
+        <div class="p2right1">
+            <p class="p1">{{product.delivery_time}} Day{% if product.delivery_time == 1%}{% else %}s{% endif %} Delivery</p>
+            <p>|</p>
+            <p class="p1">{{product.rating_amount}} Review{% if product.rating_amount == 1%}{% else %}s{% endif %}</p>
+        </div>
+        <div class="p2right2">
+            <table>
+                <tr>
+                    <td>Type:</td>
+                    <td>{{product.type}} {{product.reviews[0].date | date("m/d/Y")}}</td>
+                </tr>
+                <tr>
+                    <td>File Format:</td>
+                    <td>{{product.file_format}}</td>
+                </tr>
+                <tr>
+                    <td>Length:</td>
+                    <td>{{product.length}}s</td>
+                </tr>
+                <tr>
+                    <td>Resolution:</td>
+                    <td>{{product.resolution}}</td>
+                </tr>
+            </table>
+        </div>
+        <div class="p2right3">
+            {% for review in product.reviews %}
+            <div class="p2review">
+                
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>

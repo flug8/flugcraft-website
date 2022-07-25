@@ -1,10 +1,14 @@
 
+.gallery h1 {
+    padding: 70px 50px;
+}
+
 
 .mgrid {
     position: relative;
 
     width: auto;
-    margin: 50px;
+    margin: 0 50px 35px 50px;
     transition: none;
 }
 .mgrid-item {
@@ -41,4 +45,8 @@
 
 .slbElement {
     z-index: 20;
+}
+
+.lg-show {
+    z-index: 5000;
 }
