@@ -43,7 +43,6 @@
     text-align: center;
     z-index: 24;
     border-radius: 0 0 35px 35px;
-    color: $color2;
     & h2 {
         padding: 70px 50px;
     }
@@ -73,9 +72,9 @@
     text-align: center;
     z-index: 24;
     border-radius: 35px;
-    color: $color2;
     & .home3elements, .home3elementsmobile {
         margin: 0 25px;
+        cursor: pointer;
         & .uk-card {
             text-align: center;
             padding: 0;
@@ -105,6 +104,15 @@
 
             & .uk-card-body {
                 padding: 20px 20px 0 20px;
+                & p {
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    display: -webkit-box;
+                    line-clamp: 3;
+                    -webkit-line-clamp: 4;
+                    -webkit-box-orient: vertical;
+                    height: 90px;                    
+                }
                 & .details {
                     display: flex;
                     justify-content: space-around;

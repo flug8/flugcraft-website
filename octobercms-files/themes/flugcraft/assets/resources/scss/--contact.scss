@@ -52,7 +52,7 @@
                         }
                     }
                     & .has-error {
-                        border-right: 3px solid #f00;
+                        border-right: 3px solid $color_alert;
                     }
 
                     & #submit-wrapper-contactForm {
@@ -118,6 +118,22 @@
     }
 }
 
+#scf-message-contactForm {
+    & .alert {
+        height: 30px;
+        display: flex;
+        align-items: center;
+        border-top: 1px solid $color2;
+        border-bottom: 1px solid $color2;
+    }
+    & .alert-danger {
+        background-color: $color_alert;
+    }
+
+    & .alert-success {
+        background-color: $color_success;
+    }
+}
 
 
 

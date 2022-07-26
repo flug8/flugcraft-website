@@ -1,0 +1,121 @@
+
+
+// PRODUCTS
+
+
+.products {
+
+    & h1 {
+        padding: 70px 50px;
+    }
+    
+    padding-bottom: 35px;
+
+    & .products1 {
+        margin: 0 50px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 20px;
+        justify-items: center;
+        align-items: center;
+
+        & .uk-card {
+            cursor: pointer;
+            text-align: center;
+            padding: 0;
+            background-color: $color3;
+            border-radius: 35px;
+            margin: 0 25px;
+            width: 100%;
+
+            & .uk-card-media-top, .uk-card-media-left {
+                border-radius: 15px;
+                overflow: hidden;
+                height: 250px;
+                margin: 20px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                & img {
+                    flex-shrink: 0;
+                    min-width: 100%;
+                    min-height: 100%;
+                }
+            }
+
+            & .uk-card-header {
+                padding: 0 20px;
+            }
+
+            & .uk-card-body {
+                padding: 20px 20px 0 20px;
+                & p {
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    display: -webkit-box;
+                    line-clamp: 3;
+                    -webkit-line-clamp: 4;
+                    -webkit-box-orient: vertical;
+                    height: 90px;                    
+                }
+                & .details {
+                    display: flex;
+                    justify-content: space-around;
+                    align-items: center;
+                    margin-top: 20px;
+                }
+            }
+
+            & .uk-card-footer {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 20px;
+                & div {
+                    min-width: 31px;
+                }
+
+                
+                & svg {
+                    width: 25px;
+                    height: 25px;
+                    border: 1px solid $color2;
+                    padding: 2px;
+                    border-radius: 20px;
+            
+                    & g {
+                        fill: $color2;
+                    }
+                }
+                .starrating {
+                    --percent: calc(var(--rating) / 5 * 100%);
+                    display: inline-block;
+                    font-family: Times; // make sure ★ appears correctly
+                    line-height: 1;
+                    font-size: 160%;
+                    
+                    &::before {
+                      content: '★★★★★';
+                      letter-spacing: 3px;
+                      background: linear-gradient(90deg, $color5 var(--percent), $color1 var(--percent));
+                      -webkit-background-clip: text;
+                      background-clip: text;
+                      -webkit-text-fill-color: transparent;
+                    }
+                }
+            }
+            &:hover {
+
+                & .uk-card-footer svg {
+                    background-color: $color2;
+        
+                    & g {
+                        fill: $color3;
+                    }
+                }
+                
+            }
+        }
+    }
+}

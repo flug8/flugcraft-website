@@ -19,10 +19,13 @@
             transition: none;
             margin: 35px 50px;
             width: 100%;
-            color: $color1;
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
+
+            & h1 {
+                color: $color1;
+            }
 
             & .product1info {
                 display: flex;
@@ -30,6 +33,15 @@
                 align-items: center;
                 & button {
                     margin-top: 20px;
+                    background-color: $color1;
+                    color: $color2;
+                    & svg path {
+                        stroke: $color2;
+                    }
+
+                    &:hover {
+                        background-color: $color3;
+                    }
                 }
             }
     
@@ -42,23 +54,30 @@
     display: flex;
     justify-content: space-between;
 
-    & .product2left {
-        width:  calc(66% - 75px);
-        padding: 50px 25px 35px 50px;
 
+    & .product2left .p2left{
+        overflow: hidden;
+        width: 100%;
+
+        &.p2left1 {
+            width: 100%;
+        }
         & .p2left2 {
             margin: 50px 0;
+            width: 100%;
         }
 
         & .p2left3 {
             overflow: hidden;
+            width: 100%;
+            padding-bottom: 35px;
         }
     }
+    
 
-    & .product2right {
-        width:  calc(33% - 75px);
-        padding: 50px 50px 35px 25px;
-
+    & .product2right .p2right{
+        width: 100%;
+        min-height: calc(100vh - 150px);
         & .p2right1 {
             margin-bottom: 50px;
             text-align: center;
@@ -82,7 +101,6 @@
                     padding: 10px 0;
                     & tr {
                         padding: 10px 20px;
-                        width: 100%;
                         display: flex;
 
                         & td {
@@ -95,9 +113,9 @@
         }
 
         & .p2right3 {
-            margin-top: 70px;
+            margin-top: 50px;
+            text-align: center;
             & .p2review {
-                height: 100px;
                 background-color: $color3;
                 border-radius: 35px;
                 margin: 35px 0;
@@ -161,19 +179,123 @@
 
 
 
+.product2 {
+    display: grid;
+    grid-gap: 50px;
+    grid-template-columns: 66% 33%;
+    position: relative;
+    width: calc(100% - 140px);
+    margin: 50px 50px;
+
+    & .product2left, .product2right{
+        position: relative;
+        display: flex;
+        max-width: 100%;
+        & .p2left, .p2right {
+            position: sticky;
+            bottom: 0px;
+            margin-top: auto;
+        }
+    }
+}
+
+
+
+
+.p2review {
+    padding: 20px;
+    & .p2reviewheader {
+        display: flex;
+        justify-content: space-between;
+        & .p2rhleft {
+            display: flex;
+            & .p2rhcircle {
+                background-color: $color2;
+                opacity: .5;
+                border-radius: 100%;
+                height: 50px;
+                width: 50px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: $color1;
+                & p {
+                    vertical-align: middle;
+                    font-size: 24px;
+                }
+            }
+
+            & .p2rhcenter {
+                padding-left: 20px;
+                height: 50px;
+                text-align: left;
+                & h5 {
+                    font-size: 20px;
+                }
+                & .starrating {
+                    --percent: calc(var(--rating) / 5 * 100%);
+                    display: inline-block;
+                    font-family: Times; // make sure ★ appears correctly
+                    line-height: 1;
+                    font-size: 140%;
+                    
+                    &::before {
+                      content: '★★★★★';
+                      letter-spacing: 3px;
+                      background: linear-gradient(90deg, $color5 var(--percent), $color1 var(--percent));
+                      -webkit-background-clip: text;
+                      background-clip: text;
+                      -webkit-text-fill-color: transparent;
+                    }
+                }
+            }
+        }
+        & .p2rhright {
+            opacity: .5;
+            color: $color2;
+        }
+    }
+    & .p2reviewbody {
+        text-align: left;
+        margin-top: 10px;
+    }
+}
+
+
+
 
 
 
 @media (max-width: 960px) {
+    .product1 .product1img .product1elements{
+        & h1 {
+            font-size: 36px;
+        }
+    } 
+
     .product2 {
+        display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 0px 35px;
+        margin: 0;
+        padding: 0 20px;
+        width: calc(100% - 40px);
 
         & .product2left, .product2right {
-            width: 100%;
             text-align: center;
             padding: 50px 0 35px 0;
         }
     }
+}
+
+@media (max-width: 640px) {
+    .product1 .product1img .product1elements{
+        justify-content: center;
+        & h1 {
+            text-align: center;
+        }
+        & .product1info {
+            display: none;
+        }
+    } 
 }

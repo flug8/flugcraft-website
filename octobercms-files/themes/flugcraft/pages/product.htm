@@ -17,7 +17,7 @@ entrySlug = "{{ :slug }}"
         <div class="product1elements">
             <h1 class="product1title">{{product.title}}</h1>
             <div class="product1info">
-                <div class="starrating" style="--rating: {{product.rating}}"></div>
+                <div class="starrating" style="--rating: calc(( 0 {% for review in product.reviews%}+ {{review.rating}} {% if loop.last %}) / {{loop.index}} {% endif %} {% endfor %})"></div>
                 <button class="btna btn2" onclick="hideAll(); transitionToPage('https://fiverr.com/flugcraft')">
                     <p id="btnatxt">Get it on Fiverr</p>
                     <svg id="arrowMOF" class="arrowMOF" width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -29,7 +29,7 @@ entrySlug = "{{ :slug }}"
     </div>
 </div>
 <div class="product2">
-    <div class="product2left">
+    <div class="product2left"><div class="p2left">
         <div class="p2left1">
             <p>{{product.slogan}}</p>
         </div>
@@ -48,18 +48,18 @@ entrySlug = "{{ :slug }}"
         <div class="p2left3">
             {{product.description |raw}}
         </div>
-    </div>
-    <div class="product2right">
+    </div></div>
+    <div class="product2right"><div class="p2right">
         <div class="p2right1">
             <p class="p1">{{product.delivery_time}} Day{% if product.delivery_time == 1%}{% else %}s{% endif %} Delivery</p>
             <p>|</p>
-            <p class="p1">{{product.rating_amount}} Review{% if product.rating_amount == 1%}{% else %}s{% endif %}</p>
+            <p class="p1">{%if product.reviews is empty%}No{% else %}{% for review in product.reviews%}{% if loop.last %}{{loop.index}}{% endif %}{% endfor %}{% endif %} Review{% for review in product.reviews%}{% if loop.last %}{% if loop.index == 1 %}{% else %}s{% endif %}{% endif %}{% endfor %}</p>
         </div>
         <div class="p2right2">
             <table>
                 <tr>
                     <td>Type:</td>
-                    <td>{{product.type}} {{product.reviews[0].date | date("m/d/Y")}}</td>
+                    <td>{{product.type}}</td>
                 </tr>
                 <tr>
                     <td>File Format:</td>
@@ -76,11 +76,28 @@ entrySlug = "{{ :slug }}"
             </table>
         </div>
         <div class="p2right3">
+            <h3>Reviews</h3>
             {% for review in product.reviews %}
             <div class="p2review">
-                
+                <div class="p2reviewheader">
+                    <div class="p2rhleft">
+                        <div class="p2rhcircle">
+                            <p>{{review.username | slice(0,1)}}</p>
+                        </div>
+                        <div class="p2rhcenter">
+                            <div class="starrating" style="--rating: {{review.rating}}"></div>
+                            <h5>{{review.username}}</h5>
+                        </div>
+                    </div>
+                    <div class="p2rhright">
+                        {{review.date | date("d/m/y")}}
+                    </div>
+                </div>
+                <div class="p2reviewbody">
+                    {{review.text}}
+                </div>
             </div>
             {% endfor %}
         </div>
-    </div>
+    </div></div>
 </div>

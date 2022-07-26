@@ -426,6 +426,17 @@ function headerBackgroundColor (u = 0) {
         }
     }else if(window.location.pathname == "/contact"){
         header.add("header2");
+    }else if(window.location.pathname.includes("/product/")) {
+        const p2 = document.querySelector(".product2").getBoundingClientRect().y;
+        header.remove("header2", "header4", "header5");
+        if (p2 < 320) {
+            headerwhite = true;
+            headerDefault();
+        } else if (true) {
+            header.add("header4");
+            headerwhite = false;
+            headerDefault();
+        }
     }
 }
 

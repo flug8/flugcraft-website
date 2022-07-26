@@ -2,10 +2,36 @@ title = "Products"
 url = "/products"
 layout = "default"
 is_hidden = 0
+
+[collection products]
+handle = "Flugcraft\Products"
 ==
-<section class="uk-section uk-section-default">
-    <div class="uk-container">
-        <h1 class="uk-heading-medium">Page</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus consequuntur ex exercitationem fugiat ipsa itaque magnam minima mollitia obcaecati officiis perspiciatis quia quis quod quos repellendus temporibus vel, veniam voluptatum! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aspernatur atque doloremque eaque eveniet, explicabo facere, fugit impedit ipsum magni nulla optio quae ratione saepe sit tempora vel vero, voluptatum! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae cumque perspiciatis vel. Accusantium alias consequatur, eaque eos, est exercitationem hic libero natus neque nulla odit omnis quam quibusdam recusandae, voluptatum?</p>
+
+<div class="products">
+    <h1>Page</h1>
+    <div class="products1">
+        {%for product in products%}
+        <div class="uk-card" onclick="hideAll(); transitionToPage('/product/{{product.slug}}')">
+            <div class="uk-card-media-top">
+                <img src="{{ product.images | media | resize (750)}}" alt="">
+            </div>
+            <div class="uk-card-header">
+                <h3>{{ product.title }}</h3>
+            </div>
+            <div class="uk-card-body">
+                <p>{{product.slogan}}</p>
+                <div class="details">
+                    <h4>File: {{product.file_format}}</h4>
+                    <h4>Length: {{product.length}}</h4>
+                    <h4>Resolution: {{product.resolution}}</h4>
+                </div>
+            </div>
+            <div class="uk-card-footer">
+                <div></div>
+                <div class="starrating" style="--rating: calc(( 0 {% for review in product.reviews%}+ {{review.rating}} {% if loop.last %}) / {{loop.index}} {% endif %} {% endfor %})"></div>
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 172 172"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill="#ffffff"><path d="M160.20023,83.46644c0.67207,0.67182 1.04966,1.58315 1.04966,2.53342c0,0.95027 -0.37759,1.8616 -1.04966,2.53342l-57.33333,57.33333c-1.40602,1.35798 -3.64097,1.33856 -5.02318,-0.04365c-1.38221,-1.38221 -1.40163,-3.61716 -0.04365,-5.02318l51.21644,-51.21644h-134.68317c-1.97902,0 -3.58333,-1.60431 -3.58333,-3.58333c0,-1.97902 1.60431,-3.58333 3.58333,-3.58333h134.68317l-51.21673,-51.21644c-1.35798,-1.40602 -1.33856,-3.64097 0.04365,-5.02318c1.38221,-1.38221 3.61716,-1.40163 5.02318,-0.04365z"></path></g></g></svg>
+            </div>
+        </div>
+        {% endfor %}
     </div>
-</section>
+</div>

@@ -61,9 +61,6 @@ fields:
         type: number
         min: 1
         max: 5
-    rating_amount:
-        label: Amount of Ratings
-        type: number
     images:
         type: mediafinder
         label: Images

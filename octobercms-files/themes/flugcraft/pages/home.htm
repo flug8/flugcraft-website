@@ -16,7 +16,7 @@ handle = "Flugcraft\Products"
 <div class="home2">
     <h2>{{home.title2}}</h2>
     <div class="home2elements" uk-grid>
-        {% for feature in home.features%}
+        {% for feature in home.features |slice(0,3)%}
         <div class="uk-card uk-width-expand@m">
             {{feature.icon | md}}
             <h3>{{feature.title}}</h3>
@@ -28,9 +28,9 @@ handle = "Flugcraft\Products"
 <div class="home3 uk-visible@m">
     <div class="home3elements" uk-grid>
         {% for product in products|filter(product => product.promote) |slice(0, 3) %}
-        <div class="uk-card uk-width-expand@m {% if loop.index == 3 %} uk-visible@l {% endif %}">
+        <div class="uk-card uk-width-expand@m {% if loop.index == 3 %} uk-visible@l {% endif %}" onclick="hideAll(); transitionToPage('/product/{{product.slug}}')">
             <div class="uk-card-media-top">
-                <img src="{{ product.images | media}}" alt="">
+                <img src="{{ product.images | media | resize (750)}}" alt="">
             </div>
             <div class="uk-card-header">
                 <h3>{{ product.title }}</h3>
@@ -45,7 +45,7 @@ handle = "Flugcraft\Products"
             </div>
             <div class="uk-card-footer">
                 <div></div>
-                <div class="starrating" style="--rating: {{product.rating}}"></div>
+                <div class="starrating" style="--rating: calc(( 0 {% for review in product.reviews%}+ {{review.rating}} {% if loop.last %}) / {{loop.index}} {% endif %} {% endfor %})"></div>
                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 172 172"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill="#ffffff"><path d="M160.20023,83.46644c0.67207,0.67182 1.04966,1.58315 1.04966,2.53342c0,0.95027 -0.37759,1.8616 -1.04966,2.53342l-57.33333,57.33333c-1.40602,1.35798 -3.64097,1.33856 -5.02318,-0.04365c-1.38221,-1.38221 -1.40163,-3.61716 -0.04365,-5.02318l51.21644,-51.21644h-134.68317c-1.97902,0 -3.58333,-1.60431 -3.58333,-3.58333c0,-1.97902 1.60431,-3.58333 3.58333,-3.58333h134.68317l-51.21673,-51.21644c-1.35798,-1.40602 -1.33856,-3.64097 0.04365,-5.02318c1.38221,-1.38221 3.61716,-1.40163 5.02318,-0.04365z"></path></g></g></svg>
             </div>
         </div>

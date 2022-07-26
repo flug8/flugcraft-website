@@ -22,26 +22,19 @@ fields:
         label: Profile Descrition
         type: textarea
         size: small
-    project1_name:
-        label: Project 1 Name
-        type: text
-    project1_img:
-        label: Project 1 Image
-        type: mediafinder
-        mode: image
-    project2_name:
-        label: Project 2 Name
-        type: text
-    project2_img:
-        label: Project 2 Image
-        type: mediafinder
-        mode: image
-        maxItems: 1
-    project3_name:
-        label: Project 3 Name
-        type: text
-    project3_img:
-        label: Project 3 Image
-        type: mediafinder
-        mode: image
-        maxItems: 1    
+    projects:
+        label: Projects (3x)
+        type: repeater
+        form:
+            fields:
+                name:
+                    label: Name
+                    type: text
+                url:
+                    label: URL
+                    type: text
+                image:
+                    label: Image
+                    type: mediafinder
+                    mode: image
+                    maxItems: 1
