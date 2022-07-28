@@ -500,10 +500,15 @@ window.addEventListener("resize", function () {
 
 
 window.transitionToPage = function(href) {
+    
     document.getElementById("transition").style.opacity = 1;
     document.getElementById("transition").style.pointerEvents = "auto";
     setTimeout(function() { 
-        window.location.href = href
+        if (href.includes('https://' || href.includes('http://'))){
+        window.open(href, '_blank').focus();
+        } else {
+            window.location.href = href;
+        }
     }, 500)
 }
 
