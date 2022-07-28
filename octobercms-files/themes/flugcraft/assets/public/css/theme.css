@@ -3026,6 +3026,9 @@ h4 {
 }
 
 @media (max-width: 959px) {
+  .contact {
+    padding: 30px 20px;
+  }
   .contact .uk-grid .form-placeholder {
     order: 2;
   }
@@ -3088,7 +3091,7 @@ h4 {
   position: relative;
   margin-top: -120px;
   width: 100%;
-  height: calc(100vh - 120px);
+  aspect-ratio: 16/9;
   overflow: hidden;
   border-radius: 0px 0px 35px 35px;
   z-index: 25;
@@ -3098,7 +3101,7 @@ h4 {
   justify-content: center;
   align-items: flex-end;
   width: 100%;
-  height: calc(100vh - 120px);
+  aspect-ratio: 16/9;
   transition: none;
 }
 .product1 .product1img .product1elements {
@@ -3253,7 +3256,7 @@ h4 {
 }
 .product2 .product2left, .product2 .product2right {
   position: relative;
-  display: flex;
+  display: grid;
   max-width: 100%;
 }
 .product2 .product2left .p2left, .product2 .product2left .p2right, .product2 .product2right .p2left, .product2 .product2right .p2right {
@@ -3321,6 +3324,9 @@ h4 {
 }
 
 @media (max-width: 960px) {
+  .product1 .product1img .product1elements {
+    margin: 35px 20px;
+  }
   .product1 .product1img .product1elements h1 {
     font-size: 36px;
   }
@@ -3336,15 +3342,33 @@ h4 {
     text-align: center;
     padding: 50px 0 35px 0;
   }
+  .product2 .product2right {
+    padding-top: 0;
+  }
+  .product2 .product2left {
+    padding-bottom: 0;
+  }
+  .product1 {
+    aspect-ratio: 1/1;
+  }
+  .product1 .product1img {
+    aspect-ratio: 1/1;
+  }
 }
-@media (max-width: 640px) {
-  .product1 .product1img .product1elements {
-    justify-content: center;
-  }
-  .product1 .product1img .product1elements h1 {
-    text-align: center;
-  }
+@media (max-width: 800px) {
   .product1 .product1img .product1elements .product1info {
+    flex-direction: row;
+    align-items: center;
+  }
+  .product1 .product1img .product1elements .product1info .btna {
+    margin: 0 0 0 10px;
+  }
+  .product1 .product1img .product1elements .product1info .btna .fiverricon .b {
+    fill: #0d3937;
+  }
+}
+@media (max-width: 650px) {
+  .product1 .product1img .product1elements .product1info .starrating {
     display: none;
   }
 }
@@ -3398,7 +3422,7 @@ h4 {
   line-clamp: 3;
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
-  height: 90px;
+  height: 88px;
 }
 .products .products1 .uk-card .uk-card-body .details {
   display: flex;
@@ -3447,6 +3471,14 @@ h4 {
   fill: #e7e5e2;
 }
 
+@media (max-width: 820px) {
+  .products h1 {
+    padding: 30px 20px;
+  }
+  .products .products1 {
+    margin: 0 20px;
+  }
+}
 * {
   margin: 0px;
   font-family: NeueMontreal-Regular, Arial;

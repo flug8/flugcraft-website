@@ -32,6 +32,7 @@ var ProgressBar = /*#__PURE__*/function () {
 
     _classCallCheck(this, ProgressBar);
 
+    this.htmlElement = document.documentElement;
     this.stylesheetElement = this.createStylesheetElement();
     this.progressElement = this.createProgressElement();
     this.hiding = false;
@@ -57,6 +58,7 @@ var ProgressBar = /*#__PURE__*/function () {
         this.installStylesheetElement();
         this.installProgressElement();
         this.startTrickling();
+        this.markAsProgress(true);
       }
     }
   }, {
@@ -73,6 +75,8 @@ var ProgressBar = /*#__PURE__*/function () {
 
           _this2.visible = false;
           _this2.hiding = false;
+
+          _this2.markAsProgress(false);
         });
       }
     }
@@ -148,6 +152,15 @@ var ProgressBar = /*#__PURE__*/function () {
       element.className = 'oc-progress-bar';
       return element;
     }
+  }, {
+    key: "markAsProgress",
+    value: function markAsProgress(isProgress) {
+      if (isProgress) {
+        this.htmlElement.setAttribute('data-ajax-progress', '');
+      } else {
+        this.htmlElement.removeAttribute('data-ajax-progress');
+      }
+    }
   }], [{
     key: "defaultCSS",
     get: function get() {
@@ -210,27 +223,26 @@ var Controller = /*#__PURE__*/function () {
     key: "start",
     value: function start() {
       if (!this.started) {
+        // Track unload event for request lib
+        window.onbeforeunload = this.documentOnBeforeUnload; // First page load
+
+        addEventListener('DOMContentLoaded', this.render); // Again, after new scripts load
+
+        addEventListener('page:updated', this.render); // Again after AJAX request
+
+        addEventListener('ajax:update-complete', this.render); // Submit form
+
+        _util_events__WEBPACK_IMPORTED_MODULE_0__.Events.on(document, 'submit', '[data-request]', this.documentOnSubmit); // Track input
+
+        _util_events__WEBPACK_IMPORTED_MODULE_0__.Events.on(document, 'input', 'input[data-request][data-track-input]', this.documentOnKeyup); // Change select, checkbox, radio, file input
+
+        _util_events__WEBPACK_IMPORTED_MODULE_0__.Events.on(document, 'change', 'select[data-request], input[type=radio][data-request], input[type=checkbox][data-request], input[type=file][data-request]', this.documentOnChange); // Press enter on orphan input
+
+        _util_events__WEBPACK_IMPORTED_MODULE_0__.Events.on(document, 'keydown', 'input[type=text][data-request], input[type=submit][data-request], input[type=password][data-request]', this.documentOnKeydown); // Click submit button or link
+
+        _util_events__WEBPACK_IMPORTED_MODULE_0__.Events.on(document, 'click', 'a[data-request], button[data-request], input[type=button][data-request], input[type=submit][data-request]', this.documentOnClick);
         this.started = true;
-      } // Track unload event for request lib
-
-
-      window.onbeforeunload = this.documentOnBeforeUnload; // First page load
-
-      addEventListener('DOMContentLoaded', this.render); // Again, after new scripts load
-
-      addEventListener('page:updated', this.render); // Again after AJAX request
-
-      addEventListener('ajax:update-complete', this.render); // Submit form
-
-      _util_events__WEBPACK_IMPORTED_MODULE_0__.Events.on(document, 'submit', '[data-request]', this.documentOnSubmit); // Track input
-
-      _util_events__WEBPACK_IMPORTED_MODULE_0__.Events.on(document, 'input', 'input[data-request][data-track-input]', this.documentOnKeyup); // Change select, checkbox, radio, file input
-
-      _util_events__WEBPACK_IMPORTED_MODULE_0__.Events.on(document, 'change', 'select[data-request], input[type=radio][data-request], input[type=checkbox][data-request], input[type=file][data-request]', this.documentOnChange); // Press enter on orphan input
-
-      _util_events__WEBPACK_IMPORTED_MODULE_0__.Events.on(document, 'keydown', 'input[type=text][data-request], input[type=submit][data-request], input[type=password][data-request]', this.documentOnKeydown); // Click submit button or link
-
-      _util_events__WEBPACK_IMPORTED_MODULE_0__.Events.on(document, 'click', 'a[data-request], button[data-request], input[type=button][data-request], input[type=submit][data-request]', this.documentOnClick);
+      }
     }
   }, {
     key: "stop",
@@ -358,12 +370,11 @@ if (!window.oc.AjaxFramework) {
 
   window.oc.Events = _util_events__WEBPACK_IMPORTED_MODULE_1__.Events; // JSON parser
 
-  window.oc.parseJSON = _json_parser__WEBPACK_IMPORTED_MODULE_0__.JsonParser.parseJSON;
-} // Boot controller
+  window.oc.parseJSON = _json_parser__WEBPACK_IMPORTED_MODULE_0__.JsonParser.parseJSON; // Boot controller
 
-
-if (!isAMD() && !isCommonJS()) {
-  _namespace__WEBPACK_IMPORTED_MODULE_2__["default"].start();
+  if (!isAMD() && !isCommonJS()) {
+    _namespace__WEBPACK_IMPORTED_MODULE_2__["default"].start();
+  }
 }
 
 function isAMD() {
@@ -1812,10 +1823,10 @@ var Data = /*#__PURE__*/function () {
       return Object.keys(flatData).map(function (key) {
         if (key.endsWith('[]')) {
           return flatData[key].map(function (val) {
-            return key + '=' + encodeURIComponent(val);
+            return encodeURIComponent(key) + '=' + encodeURIComponent(val);
           }).join('&');
         } else {
-          return key + '=' + encodeURIComponent(flatData[key]);
+          return encodeURIComponent(key) + '=' + encodeURIComponent(flatData[key]);
         }
       }).join('&');
     }

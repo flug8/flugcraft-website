@@ -429,7 +429,7 @@ function headerBackgroundColor (u = 0) {
     }else if(window.location.pathname.includes("/product/")) {
         const p2 = document.querySelector(".product2").getBoundingClientRect().y;
         header.remove("header2", "header4", "header5");
-        if (p2 < 320) {
+        if (p2 < 320 && window.scrollY > 0) {
             headerwhite = true;
             headerDefault();
         } else if (true) {
@@ -695,5 +695,4 @@ function randomGallery () {
 function generateRandomInteger(max) {
     return Math.floor(Math.random() * max) + 1;
 }
-
 

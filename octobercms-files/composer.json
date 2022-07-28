@@ -12,7 +12,8 @@
         "ompmega/mixhelper-plugin": "dev-master",
         "ompmega/oc-theme-theme": "^1.2",
         "janvince/smallcontactform-plugin": "dev-master",
-        "abwebdevelopers/imageresize-plugin": "^2.2"
+        "abwebdevelopers/imageresize-plugin": "^2.2",
+        "rainlab/deploy-plugin": "^2.1"
     },
     "require-dev": {
         "phpunit/phpunit": "^8.5|^9.0"

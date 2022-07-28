@@ -142,6 +142,9 @@
 
 
 @media (max-width: 959px) {
+    .contact {
+        padding: 30px 20px;
+    }
     .contact .uk-grid .form-placeholder {
         order: 2;
         & .form {

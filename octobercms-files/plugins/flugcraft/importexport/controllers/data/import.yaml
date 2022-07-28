@@ -1,0 +1,9 @@
+
+
+import:
+    title: Import Data
+    modelClass: Acme\Campaign\Models\SubscriberImport
+    list: $/
+
+defaultFormatOptions:
+  fileFormat: json

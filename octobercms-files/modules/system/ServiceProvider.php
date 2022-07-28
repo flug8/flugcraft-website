@@ -500,7 +500,7 @@ class ServiceProvider extends ModuleServiceProvider
      */
     protected function registerValidator()
     {
-        $this->app->resolving('validator', function ($validator) {
+        $this->callAfterResolving('validator', function ($validator) {
             // Allowed file extensions, as opposed to mime types.
             // - extensions: png,jpg,txt
             $validator->extend('extensions', function ($attribute, $value, $parameters) {
@@ -538,7 +538,7 @@ class ServiceProvider extends ModuleServiceProvider
      */
     protected function extendViewService()
     {
-        $this->app->resolving('view', function($view) {
+        $this->callAfterResolving('view', function($view) {
             // Register .htm extension for Twig views
             $view->addExtension('htm', 'twig', function () {
                 return new TwigEngine($this->app->make('twig.environment'));

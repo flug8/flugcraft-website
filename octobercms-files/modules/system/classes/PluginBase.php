@@ -247,7 +247,7 @@ class PluginBase extends ServiceProviderBase implements OctoberPackage
      */
     public function registerValidationRule($key, $rule)
     {
-        $this->app->resolving('validator', function ($validator) use ($key, $rule) {
+        $this->callAfterResolving('validator', function ($validator) use ($key, $rule) {
             $validator->extend($key, $rule);
         });
     }

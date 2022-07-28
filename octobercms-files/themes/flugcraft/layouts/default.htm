@@ -15,15 +15,14 @@ handle = "Flugcraft\Products"
         <link type="text/css" rel="stylesheet" href="{{'assets/public/css/lightgallery-bundle.css' | theme}}" />
         <link type="text/css" rel="stylesheet" href="{{'assets/public/css/lightslider.css' | theme}}" />
         {% styles %}
-
-        <script src="https://cdn.jsdelivr.net/npm/muuri@0.9.5/dist/muuri.min.js"></script>
         <script type="text/javascript" src="{{ 'assets/public/js/masonry.pkgd.min.js' |theme }}"></script>
         <script type="text/javascript" src="{{ 'assets/public/js/packery.pkgd.min.js' |theme }}"></script>
         <script type="text/javascript" src="{{ 'assets/public/js/sl.min.js' |theme }}"></script>
         <script type="text/javascript" src="{{ mix('/public/js/manifest.js') }}"></script>
         <script type="text/javascript" src="{{ mix('/public/js/vendor.js') }}"></script>
         <script src="https://unpkg.com/typeit@8.7.0/dist/index.umd.js"></script>
-        <script src="{{ ['@jquery'] | theme }}"></script>
+        <!--<script src="{{ ['@jquery'] | theme }}"></script>-->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
 
     </head>
@@ -165,7 +164,7 @@ handle = "Flugcraft\Products"
                             </defs>
                             <circle id="fiverrMOFCircle" class="b" cx="172.87" cy="26.87" r="26.87"/>
                             <path id="fiverrMOFPath" class="b" d="M200.94,71.36H77.94v-8.06c0-15.83,15.83-16.13,23.89-16.13,9.25,0,13.44,.9,13.44,.9V4.47c-6.54-.81-13.12-1.21-19.71-1.19-25.68,0-73.16,7.16-73.16,61.51v6.91H0v40.31H22.4v85.1H1.5v40.31H102.41v-40.35h-24.49V111.97h67.15v85.1h-20.87v40.31h97.65v-40.31h-20.91V71.36Z"/>
-                          </svg>
+                        </svg>
                     </button>
                 </div>
                 <div class="header-burger">

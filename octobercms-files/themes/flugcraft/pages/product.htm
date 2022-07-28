@@ -18,10 +18,16 @@ entrySlug = "{{ :slug }}"
             <h1 class="product1title">{{product.title}}</h1>
             <div class="product1info">
                 <div class="starrating" style="--rating: calc(( 0 {% for review in product.reviews%}+ {{review.rating}} {% if loop.last %}) / {{loop.index}} {% endif %} {% endfor %})"></div>
-                <button class="btna btn2" onclick="hideAll(); transitionToPage('https://fiverr.com/flugcraft')">
+                <button class="btna btn1" onclick="hideAll(); transitionToPage('https://fiverr.com/flugcraft')">
                     <p id="btnatxt">Get it on Fiverr</p>
                     <svg id="arrowMOF" class="arrowMOF" width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path id="arrowMOFPath" d="M8.5 5L15.5 12L8.5 19" stroke="#130F26" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="fiverricon" data-name="Ebene 1" viewBox="0 0 221.85 237.42">
+                        <defs>
+                        </defs>
+                        <circle id="fiverrMOFCircle" class="b" cx="172.87" cy="26.87" r="26.87"/>
+                        <path id="fiverrMOFPath" class="b" d="M200.94,71.36H77.94v-8.06c0-15.83,15.83-16.13,23.89-16.13,9.25,0,13.44,.9,13.44,.9V4.47c-6.54-.81-13.12-1.21-19.71-1.19-25.68,0-73.16,7.16-73.16,61.51v6.91H0v40.31H22.4v85.1H1.5v40.31H102.41v-40.35h-24.49V111.97h67.15v85.1h-20.87v40.31h97.65v-40.31h-20.91V71.36Z"/>
                     </svg>
                 </button>
             </div>

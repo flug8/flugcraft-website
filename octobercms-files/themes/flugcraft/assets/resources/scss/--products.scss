@@ -57,7 +57,7 @@
                     line-clamp: 3;
                     -webkit-line-clamp: 4;
                     -webkit-box-orient: vertical;
-                    height: 90px;                    
+                    height: 88px;                    
                 }
                 & .details {
                     display: flex;
@@ -117,5 +117,15 @@
                 
             }
         }
+    }
+}
+
+
+@media (max-width: 820px) {
+    .products h1{
+        padding: 30px 20px;
+    }
+    .products .products1 {
+        margin: 0 20px;
     }
 }
